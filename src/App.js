@@ -20,7 +20,7 @@ function App() {
         <Route exact path="/" component={LandingPage} ></Route>
         <Route exact path="/encontrar-experto" component={FindExpert} ></Route>
         <Route exact path="/login" component={Login} ></Route>
-        <Route exact path="/seleccionar" component={SignUp} ></Route>
+        <Route exact path="/signup" component={SignUp} ></Route>
         <Route exact path="/registro/experto" component={RegisterExpert} ></Route>
         <Route exact path="/registro/usuario" component={RegisterUser} ></Route>
       </Switch>

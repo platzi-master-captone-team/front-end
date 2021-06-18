@@ -16,7 +16,7 @@ const Navbar = () => {
                 <NavMenu>
                     <NavMenuLink to='/search'>Encuentra un Experto</NavMenuLink>
                     <NavMenuLink to='/login'>Inicia Sesión</NavMenuLink>
-                    <Button to='/seleccionar'>Únete Ahora</Button>
+                    <Button to='/signup'>Únete Ahora</Button>
                 </NavMenu>
             </Header>
         </>
