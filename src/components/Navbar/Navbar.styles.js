@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
 
 export const Header = styled.header`
-    padding: 0.5rem;
+    padding: 0.8rem 2rem;
     display: flex;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 `
