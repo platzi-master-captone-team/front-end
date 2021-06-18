@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
     --color-primary: #FFB900;
     --color-secondary: #9B2ECF;
     --color-tertiary: #FF8600;
+    --color-lightgrey: #E0E0E0;
 
     --font-primary: 'Karla';
     --font-secondary: 'Rubik';
