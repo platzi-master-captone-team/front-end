@@ -7,13 +7,13 @@ import logoTwitter from "../../assets/images/twitter-logo.svg"
 
 export const RegisterExpertForm = () => {
     return ( 
-        <FormContainer action="" formWidth={`662px`} formPadding={"4.2rem"}>
+        <FormContainer action="" formWidth={`662px`} maxWidth={"662px"} formPadding={"4rem"}>
             <Title>Registrarse</Title>
-            <TextIndicator>Registrate con tus redes sociales</TextIndicator>
+            <TextIndicator>Regístrate con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"row"}>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoGoogle}/>Registrate con Google</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoLinkedIn}/>Registrate con LinkedIn</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoTwitter}/>Registrate con Twitter</SocialButton>
+                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoGoogle}/>Regístrate con Google</SocialButton>
+                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoLinkedIn}/>Regístrate con LinkedIn</SocialButton>
+                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoTwitter}/>Regístrate con Twitter</SocialButton>
             </SocialButtons>
             <TextIndicator>O llena el siguiente formulario</TextIndicator>
             <Inputs>
@@ -55,13 +55,13 @@ export const RegisterExpertForm = () => {
 
 export const RegisterUserForm = () => {
     return ( 
-        <FormContainer action="" formWidth={`662px`} formPadding={"4.2rem"}>
+        <FormContainer action="" formWidth={`662px`} maxWidth={"662px"} formPadding={"4.2rem"}>
             <Title>Registrarse</Title>
-            <TextIndicator>Registrate con tus redes sociales</TextIndicator>
+            <TextIndicator>Regístrate con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"row"}>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoGoogle}/>Registrate con Google</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoLinkedIn}/>Registrate con LinkedIn</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoTwitter}/>Registrate con Twitter</SocialButton>
+                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoGoogle}/>Regístrate con Google</SocialButton>
+                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoLinkedIn}/>Regístrate con LinkedIn</SocialButton>
+                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoTwitter}/>Regístrate con Twitter</SocialButton>
             </SocialButtons>
             <TextIndicator>O llena el siguiente formulario</TextIndicator>
             <Inputs>
@@ -99,13 +99,13 @@ export const RegisterUserForm = () => {
 
 export const LoginForm = () => {
     return ( 
-        <FormContainer action="" formWidth={`400px`} formPadding={"6.8rem"}>
+        <FormContainer action="" formWidth={`420px`} maxWidth={"420px"} formPadding={"4rem"}>
             <Title>Login</Title>
             <TextIndicator>Ingresa con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"column"} >
-                <SocialButton marginBottom={"1.5rem"} buttonWidth={"100%"}><SocialButtonImg src={logoGoogle}/>Registrate con Google</SocialButton>
-                <SocialButton marginBottom={"1.5rem"} buttonWidth={"100%"}><SocialButtonImg src={logoLinkedIn}/>Registrate con LinkedIn</SocialButton>
-                <SocialButton marginBottom={"1.5rem"} buttonWidth={"100%"}><SocialButtonImg src={logoTwitter}/>Registrate con Twitter</SocialButton>
+                <SocialButton marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoGoogle}/>Regístrate con Google</SocialButton>
+                <SocialButton marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoLinkedIn}/>Regístrate con LinkedIn</SocialButton>
+                <SocialButton marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoTwitter}/>Regístrate con Twitter</SocialButton>
             </SocialButtons>
             <TextIndicator>O ingresa con tu correo</TextIndicator>
             <Inputs>

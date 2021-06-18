@@ -7,7 +7,7 @@ export const MainContent = styled.div`
     align-items: center;
     width: 100%;
     height: auto;
-    margin: 10rem auto 0 auto;
+    margin: 3.5rem auto;
     max-width: 1366px; 
     
 `
