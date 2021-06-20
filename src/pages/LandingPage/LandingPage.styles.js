@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { Link } from 'react-router-dom';
-import hero from '../../assets/hero.png';
+import hero from '../../assets/images/hero.png';
 
 export const Landing = styled.main`
     max-width: 1366px;

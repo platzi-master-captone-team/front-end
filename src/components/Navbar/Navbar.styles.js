@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/images/logo.png';
 
 export const Header = styled.header`
     padding: 0.8rem 2rem;
