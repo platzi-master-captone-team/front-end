@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import styled from "styled-components";
  
 const GlobalStyles = createGlobalStyle`
   * {
@@ -31,6 +32,12 @@ const GlobalStyles = createGlobalStyle`
     outline: 0;
   } 
 `;
+
+export const TitleBold = styled.p`
+  font-family: var(--font-secondary);
+  font-weight: bold;
+  font-size: var(--font-large);
+`
 
 
 export default GlobalStyles;

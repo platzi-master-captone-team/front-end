@@ -8,7 +8,10 @@ import RegisterUser from './pages/Register/RegisterUser';
 import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import LandingPage from './pages/LandingPage/LandingPage';
+import Profile from './pages/Profile/Profile';
+
 import Navbar from './components/Navbar/Navbar';
+
 import GlobalStyles from './GlobalStyles';
 
 function App() {
@@ -23,6 +26,7 @@ function App() {
         <Route exact path="/signup" component={SignUp} ></Route>
         <Route exact path="/registro/experto" component={RegisterExpert} ></Route>
         <Route exact path="/registro/usuario" component={RegisterUser} ></Route>
+        <Route path="/profile" component={Profile} ></Route>
       </Switch>
   </BrowserRouter>
   );
