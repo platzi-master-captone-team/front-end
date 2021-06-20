@@ -6,8 +6,8 @@ const BookingList = () => {
     return(
         <List>
             <BookingCard status='active'/>
-            <BookingCard />
-            <BookingCard />
+            <BookingCard status='inactive'/>
+            <BookingCard status='finished'/>
         </List>
     )
 }

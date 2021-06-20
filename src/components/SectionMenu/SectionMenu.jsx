@@ -7,11 +7,11 @@ import {
 const SectionMenu = () => {
     return(
         <Menu>
-            <MenuItem active>Dashboard</MenuItem>
-            <MenuItem>Historial de Citas</MenuItem>
-            <MenuItem>Configuración de <br/> Método de Pago</MenuItem>
-            <MenuItem>Configuración <br/> Personal</MenuItem>
-            <MenuItem>Términos y <br/> Condiciones</MenuItem>
+            <MenuItem to='/profile/dashboard' >Dashboard</MenuItem>
+            <MenuItem to='/profile/history' >Historial de Citas</MenuItem>
+            <MenuItem to='/profile/payment' >Configuración de <br/> Método de Pago</MenuItem>
+            <MenuItem to='/profile/personal' >Configuración <br/> Personal</MenuItem>
+            <MenuItem to='/profile/terms' >Términos y <br/> Condiciones</MenuItem>
         </Menu>
     );
 }

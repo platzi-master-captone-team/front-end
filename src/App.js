@@ -21,7 +21,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={LandingPage} ></Route>
-        <Route exact path="/encontrar-experto" component={FindExpert} ></Route>
+        <Route exact path="/search" component={FindExpert} ></Route>
         <Route exact path="/login" component={Login} ></Route>
         <Route exact path="/signup" component={SignUp} ></Route>
         <Route exact path="/registro/experto" component={RegisterExpert} ></Route>

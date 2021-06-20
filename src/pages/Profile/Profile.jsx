@@ -1,9 +1,5 @@
-import { Switch, Route } from 'react-router-dom';
-
-import { TitleBold } from '../../GlobalStyles';
-
 import SectionMenu from '../../components/SectionMenu/SectionMenu';
-import Dashboard from '../../components/Dashboard/Dashboard';
+import ProfileSection from '../../components/ProfileSection/ProfileSection';
 
 import {
     ProfileMain,
@@ -11,24 +7,24 @@ import {
     User,
     UserInfo,
     UserName,
-    UserRole
+    UserRole,
+    Sidebar
 } from './Profile.styles';
 
 const Profile = () => {
     return(
         <ProfileMain>
-            <User>
-                <Avatar/>
-                <UserInfo>
-                    <UserName>José Araiza</UserName>
-                    <UserRole>Cliente</UserRole>
-                </UserInfo>
-            </User>
-            <TitleBold>Próximas Citas</TitleBold>
-            <SectionMenu />
-            <Switch>
-                <Route exact path="/profile/dashboard" component={Dashboard} ></Route>
-            </Switch>
+            <Sidebar>
+                <User>
+                    <Avatar/>
+                    <UserInfo>
+                        <UserName>José Araiza</UserName>
+                        <UserRole>Cliente</UserRole>
+                    </UserInfo>
+                </User>
+                <SectionMenu />
+            </Sidebar>
+            <ProfileSection/>
         </ProfileMain>
     )
 }

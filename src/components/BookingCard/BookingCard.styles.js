@@ -59,7 +59,16 @@ export const ChatLink = styled(Link)`
     border-radius: 15px;
     text-decoration: none;
     margin-right: 1rem;
+    display: ${props => props.status === 'finished' ? 'none' : 'inline'};
 `
+export const Finished = styled.div`
+    font-weight: 700;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    color: grey;
+    display: ${props => props.status !== 'finished' ? 'none' : 'inline'};
+`
+
 export const Indicator = styled.div`
     background: ${props => props.status === 'active' ? '#6FCF97' : '#BDBDBD'};
     box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);

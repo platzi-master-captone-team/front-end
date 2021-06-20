@@ -7,7 +7,8 @@ import {
     BookingTime,
     JoinChat,
     ChatLink,
-    Indicator
+    Indicator,
+    Finished
 } from "./BookingCard.styles";
 
 const BookingCard = ( {status} ) => {
@@ -19,7 +20,8 @@ const BookingCard = ( {status} ) => {
                 <BookingDate>Viernes 18 de Junio 2021</BookingDate>
                 <BookingTime>11:00 - 12:00</BookingTime>
                 <JoinChat>
-                    <ChatLink to='/chat'>Unirse</ChatLink>
+                    <ChatLink status={status} to='/chat'>Unirse</ChatLink>
+                    <Finished status={status}>Finalizada</Finished>
                     <Indicator status={status}></Indicator>
                 </JoinChat>
             </BookingDetails>
