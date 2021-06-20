@@ -1,12 +1,15 @@
 import { SectionTitle } from "../ProfileSection/ProfileSection.styles";
 
-
+import FormPersonal from "../FormPersonal/FormPersonal";
 
 const SectionPersonal = () => {
     return(
         <>
             <SectionTitle>Datos Personales</SectionTitle>
-            <h1>Datos Personales</h1>
+            <FormPersonal />
+            <SectionTitle>Cambiar Contraseña</SectionTitle>
+
+            
         </>
     )
 }
