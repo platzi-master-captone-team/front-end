@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { MainContainer, SearchBar, List, Item } from './FindExpertStyles'
+import { MainContainer } from './SearchStyles'
+import SearchBar from '../../components/Search/SearchBar'
+import SearchResults from '../../components/Search/SearchResults'
+import SearchPagination from '../../components/Search/SearchPagination'
 
 const list = {
     "categories":[
@@ -17,11 +20,9 @@ const FindExpert = () => {
     }, [])
     return (
         <MainContainer>
-            <SearchBar>
-                <List>
-                    
-                </List>
-            </SearchBar>
+            <SearchBar />
+            <SearchResults />
+            <SearchPagination />
         </MainContainer>
     )
 }

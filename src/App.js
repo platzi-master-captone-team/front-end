@@ -2,7 +2,7 @@ import './App.css';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import FindExpert from './pages/FindExpert/FindExpert';
+import Search from './pages/Search/Search';
 import RegisterExpert from './pages/Register/RegisterExpert';
 import RegisterUser from './pages/Register/RegisterUser';
 import Login from './pages/Login/Login';
@@ -18,7 +18,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={LandingPage} ></Route>
-        <Route exact path="/encontrar-experto" component={FindExpert} ></Route>
+        <Route exact path="/search" component={Search} ></Route>
         <Route exact path="/login" component={Login} ></Route>
         <Route exact path="/signup" component={SignUp} ></Route>
         <Route exact path="/registro/experto" component={RegisterExpert} ></Route>
