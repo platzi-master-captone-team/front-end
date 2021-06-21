@@ -13,7 +13,7 @@ const SearchResultCard = ( {name, speciality, description, avatar = DEFAULT_AVAT
                  <Division />   
                  <Description>{description}</Description>
              </Info>
-             <Button>Consultar</Button>   
+             <Button href='/perfil'>Consultar</Button>   
         </Card>
     )
 }

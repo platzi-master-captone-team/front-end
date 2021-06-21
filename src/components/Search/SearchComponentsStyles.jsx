@@ -38,6 +38,7 @@ export const Select = styled.select`
     background: none;
     border: none;
     font-weight: bold;
+    font-family: var(--font-secondary);
     padding: 1rem 0.5rem 1rem 0;
     cursor: pointer;
 `
@@ -97,12 +98,13 @@ export const Info = styled.div`
 export const Name = styled.h3`
     font-weight: bold;
     font-size: var(--font-medium);
+    font-family: var(--font-secondary);
     @media (max-width: 768px) {
         font-size: var(--font-large);
     }    
 `
 export const Speciality = styled.p`
-    font-weight: medium;
+    font-weight: bold;
     font-size: var(--font-small);
     color: #777777;
     line-height: 15px;
@@ -134,6 +136,7 @@ export const Button = styled.a`
     color: inherit;
     text-decoration: none;
     text-align: center;
+    font-family: var(--font-primary);
 
 `
 // Pagination
