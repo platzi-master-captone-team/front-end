@@ -1,27 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { MainContainer, SearchBar, List, Item } from './FindExpertStyles'
-
-const list = {
-    "categories":[
-        {"frontend":["react", "vue"]}, 
-        {"backend":["react", "vue"]}
-    ]
-}
-
+import React from 'react'
+import { MainContainer } from './FindExpertStyles'
+import FindExpertProfile from '../../components/FindExpert/FindExpertProfile'
+import FindExpertAgenda from '../../components/FindExpert/FindExpertAgenda'
 
 const FindExpert = () => {
-    const [categories, setCategories] = useState({})
-    useEffect(() => {
-        setCategories(list.categories)
-        console.log(list.categories)
-    }, [])
     return (
         <MainContainer>
-            <SearchBar>
-                <List>
-                    
-                </List>
-            </SearchBar>
+            <FindExpertProfile />
+            <FindExpertAgenda />
         </MainContainer>
     )
 }

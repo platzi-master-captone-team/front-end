@@ -49,7 +49,7 @@ const Navbar = () => {
                 <Logo/>
                 <BrandTitle to='/'>Consultify</BrandTitle>
                 <NavMenu>
-                    <NavMenuLink to='/search'>Encuentra un Experto</NavMenuLink>
+                    <NavMenuLink to='/buscar'>Encuentra un Experto</NavMenuLink>
                     <NavMenuLink to='/login' $show={login.status}>Inicia Sesión</NavMenuLink>
                     <Button to='/signup' $show={login.status}>Únete Ahora</Button>
                     <NavMenuLink to='/profile/dashboard' $show={!login.status}>Mi Cuenta</NavMenuLink>
