@@ -3,7 +3,7 @@ import { MainContainer } from './FindExpertStyles'
 import FindExpertProfile from '../../components/FindExpert/FindExpertProfile'
 import FindExpertAgenda from '../../components/FindExpert/FindExpertAgenda'
 
-const Profile = () => {
+const FindExpert = () => {
     return (
         <MainContainer>
             <FindExpertProfile />
@@ -12,4 +12,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default FindExpert;
