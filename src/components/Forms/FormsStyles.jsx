@@ -74,6 +74,17 @@ export const Input = styled.input`
     padding: 0.8rem;
 
 `
+export const Select = styled.select`
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    border: none;
+    background: #F5F5F5;
+    padding: 0.8rem;
+    cursor: pointer;
+
+`
+export const Option = styled.option``
 
 export const FormButton = styled.button`
     width: ${props => props.buttonWidth};

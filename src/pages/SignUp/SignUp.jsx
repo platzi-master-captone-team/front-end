@@ -11,8 +11,8 @@ const SignUp = () => {
             </ImgWrapper>
             <SelectSection>
                 <Text>Regístrate ahora para entrar en contacto con el Mejor Talento de la región</Text>
-                <Link href='/registro/experto'>Busco un Experto</Link>
-                <Link href='/registro/usuario'>Soy un Experto</Link>
+                <Link href='/registro/usuario'>Busco un Experto</Link>
+                <Link href='/registro/experto'>Soy un Experto</Link>
             </SelectSection>
         </MainContent>
      );

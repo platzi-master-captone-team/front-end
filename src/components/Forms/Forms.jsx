@@ -1,11 +1,19 @@
-import React from 'react'
-import { FormContainer, Title, TextIndicator, SocialButtons, SocialButton, SocialButtonImg, Inputs, InputContainer, InputLabel, Input, FormButton } from './FormsStyles';
+import React, { useState } from 'react'
+import { FormContainer, Title, TextIndicator, SocialButtons, SocialButton, SocialButtonImg, Inputs, InputContainer, InputLabel, Input, FormButton, Select, Option } from './FormsStyles';
 
 import logoGoogle from "../../assets/images/google-logo.svg"  
 import logoLinkedIn from "../../assets/images/linkedin-logo.svg"  
 import logoTwitter from "../../assets/images/twitter-logo.svg"  
 
+
+import COUNTRIES from './countries.json'  
+import TIME_ZONES from './timezones.json'  
+
 export const RegisterExpertForm = () => {
+
+    const [countries] = useState(COUNTRIES)
+    const [timezones] = useState(TIME_ZONES)
+
     return ( 
         <FormContainer action="" formWidth={`662px`} maxWidth={"662px"} formPadding={"4rem"}>
             <Title>Registrarse</Title>
@@ -27,11 +35,21 @@ export const RegisterExpertForm = () => {
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>País</InputLabel>
-                    <Input type="country" />
+                    <Select>
+                        <Option>Selecciona un país</Option>
+                        {countries.map(country => (
+                            <Option key={country.code} value={country.name}>{country.name}</Option>
+                        ))}
+                    </Select>
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>Zona Horaria</InputLabel>
-                    <Input type="time" />
+                    <Select>
+                        <Option>Selecciona una zona horaria</Option>
+                        {timezones.map(time => (
+                            <Option key={time.value} value={time.value}>{time.text}</Option>
+                        ))}
+                    </Select>
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>Correo</InputLabel>
