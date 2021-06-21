@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/images/logo.png';
+
 
 export const Header = styled.header`
     padding: 0.8rem 2rem;
@@ -40,6 +41,7 @@ export const NavMenuLink = styled(Link)`
     padding: 0 0.5rem;
     cursor: pointer;
     color: black;
+    display: ${props => props.$show ? 'none' : 'inline'};
 `
 export const Button = styled(Link)`
     font-family: Karla;
@@ -50,4 +52,29 @@ export const Button = styled(Link)`
     background: var(--color-primary);
     border-radius: 15px;
     text-decoration: none;
+    display: ${props => props.$show ? 'none' : 'inline'};
+`
+
+export const Avatar = styled.img`
+    padding: 0 1rem;
+    height: 50px;
+    display: ${props => props.$show ? 'none' : 'inline'};
+`
+export const UserMenu = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const UserMenuDropdown = styled.div`
+    position: absolute;
+    top: 65px;
+    background: white;
+    padding: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: ${props => props.$show ? 'flex' : 'none'};
+
+    &:hover{
+        text-decoration: underline;
+    }
 `

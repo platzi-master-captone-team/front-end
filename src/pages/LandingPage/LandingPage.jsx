@@ -12,11 +12,11 @@ import {
   Hero
 } from "./LandingPage.styles";
 
-import youtube from '../../assets/youtube.svg';
-import facebook from '../../assets/facebook.svg';
-import twitter from '../../assets/twitter.svg';
-import linkedin from '../../assets/linkedin.svg';
-import instagram from '../../assets/instagram.svg';
+import youtube from '../../assets/images/youtube.svg';
+import facebook from '../../assets/images/facebook.svg';
+import twitter from '../../assets/images/twitter.svg';
+import linkedin from '../../assets/images/linkedin.svg';
+import instagram from '../../assets/images/instagram.svg';
 
 
 function LandingPage () {

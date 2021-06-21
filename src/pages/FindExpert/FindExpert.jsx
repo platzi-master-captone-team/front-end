@@ -26,4 +26,4 @@ const FindExpert = () => {
     )
 }
 
-export default FindExpert
+export default FindExpert;
