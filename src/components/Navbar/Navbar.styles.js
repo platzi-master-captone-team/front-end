@@ -7,11 +7,13 @@ import logo from '../../assets/images/logo.png';
 export const Header = styled.header`
     padding: 0.8rem 2rem;
     display: flex;
+    align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 `
 
 export const Logo = styled.img`
-
+    width: 50px;
+    height: 50px;
 `
 Logo.defaultProps = {
     src: logo
@@ -62,17 +64,21 @@ export const Avatar = styled.img`
 `
 export const UserMenu = styled.div`
     display: flex;
-    justify-content: center;
+    align-items: center;
 `
 
-export const UserMenuDropdown = styled.div`
-    position: absolute;
-    top: 65px;
-    background: white;
-    padding: 0.5rem;
+export const UserMenuDropdown = styled.ul`
+    display: ${props => props.$show ? 'flex' : 'none'};
+    flex-direction:column;
+`
+
+export const UserMenuOption = styled.li`
+    display: block;
+    position: relative;
+
+    padding: 0.2rem;
     font-weight: 700;
     cursor: pointer;
-    display: ${props => props.$show ? 'flex' : 'none'};
 
     &:hover{
         text-decoration: underline;

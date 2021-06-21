@@ -10,4 +10,5 @@ export const Section = styled.section`
 `
 export const SectionTitle = styled(TitleBold)`
     padding: 3rem;
+    display: ${props => props.$show === props.profile ? 'inline' : 'none'};
 `

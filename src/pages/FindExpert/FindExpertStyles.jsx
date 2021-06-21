@@ -7,7 +7,6 @@ export const MainContainer = styled.div`
     width: 100%;
     max-width: 1336px;
     margin: 0 auto;
-    border: 1px solid red;
 `
 export const SearchBar = styled.div`
     width: 80%;

@@ -6,6 +6,7 @@ import {
     BrandTitle,
     NavMenuLink,
     UserMenuDropdown,
+    UserMenuOption,
     NavMenu,
     UserMenu,
     Button,
@@ -27,9 +28,19 @@ const Navbar = () => {
     }
 
     function CloseSession () {
-        setLogin(false);
+        setLogin({...login, status:false});
         setUserMenu(false);
         history.push("/");
+    }
+
+    function ChangeToExpert () {
+        setLogin({...login, role:'Expert', name:'Ana Rojas'});
+        setUserMenu(false);
+    }
+
+    function ChangeToClient () {
+        setLogin({...login, role:'Client', name:'José Araiza'});
+        setUserMenu(false);
     }
 
     return (
@@ -42,9 +53,14 @@ const Navbar = () => {
                     <NavMenuLink to='/login' $show={login.status}>Inicia Sesión</NavMenuLink>
                     <Button to='/signup' $show={login.status}>Únete Ahora</Button>
                     <NavMenuLink to='/profile/dashboard' $show={!login.status}>Mi Cuenta</NavMenuLink>
-                    <UserMenu >
+                    <UserMenu>
                         <Avatar onClick={ToggleMenu} src={ login.role === 'Client' ? avatar: avatar2 } $show={!login.status}/>
-                        <UserMenuDropdown $show={userMenu} onClick={CloseSession}>Cerrar Sesión</UserMenuDropdown> 
+                        <UserMenuDropdown $show={userMenu}>
+                            <UserMenuOption onClick={ChangeToExpert}>Cambiar a Experto</UserMenuOption>
+                            <UserMenuOption onClick={ChangeToClient}>Cambiar a Cliente</UserMenuOption>
+                            <UserMenuOption onClick={CloseSession}>Cerrar Sesión</UserMenuOption> 
+                        </UserMenuDropdown>
+                        
                     </UserMenu>
                      
                 </NavMenu>
