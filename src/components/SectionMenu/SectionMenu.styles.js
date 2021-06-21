@@ -14,6 +14,6 @@ export const MenuItem = styled(Link)`
     font-weight: bold;
     font-size: var(--font-large);
     padding: 1rem;
-    color: ${props => props.active ? 'black' : 'grey'};
+    color: ${props => props.active === props.id ? 'black' : 'grey'};
     cursor: pointer;
 `
