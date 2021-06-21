@@ -1,6 +1,7 @@
+import { useContext } from "react";
 import SectionMenu from '../../components/SectionMenu/SectionMenu';
 import ProfileSection from '../../components/ProfileSection/ProfileSection';
-
+import { LoginContext } from '../../utils/loginStatus';
 import {
     ProfileMain,
     Avatar,
@@ -11,15 +12,21 @@ import {
     Sidebar
 } from './Profile.styles';
 
+import avatar from '../../assets/images/avatar.png';
+import avatar2 from '../../assets/images/avatar2.png';
+
 const Profile = () => {
+
+    const { login } = useContext(LoginContext);
+
     return(
         <ProfileMain>
             <Sidebar>
                 <User>
-                    <Avatar/>
+                    <Avatar src={ login.role === 'Client' ? avatar : avatar2 }/>
                     <UserInfo>
-                        <UserName>José Araiza</UserName>
-                        <UserRole>Cliente</UserRole>
+                        <UserName>{login.name}</UserName>
+                        <UserRole>{login.role}</UserRole>
                     </UserInfo>
                 </User>
                 <SectionMenu />
