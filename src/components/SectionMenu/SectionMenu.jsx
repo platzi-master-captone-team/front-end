@@ -14,7 +14,7 @@ const SectionMenu = () => {
     useEffect(() => {
         let currentPath = location.pathname.split('/')[2];
         setActive(currentPath)
-      }, [location]);
+    }, [location]);
 
     return(
         <Menu>

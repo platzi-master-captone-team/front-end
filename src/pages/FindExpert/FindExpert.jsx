@@ -19,7 +19,7 @@ const FindExpert = () => {
         <MainContainer>
             <SearchBar>
                 <List>
-                    <Item>1</Item>
+                    
                 </List>
             </SearchBar>
         </MainContainer>
