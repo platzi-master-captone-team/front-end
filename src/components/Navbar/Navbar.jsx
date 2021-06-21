@@ -14,7 +14,7 @@ const Navbar = () => {
                 <Logo/>
                 <BrandTitle to='/'>Consultify</BrandTitle>
                 <NavMenu>
-                    <NavMenuLink to='/search'>Encuentra un Experto</NavMenuLink>
+                    <NavMenuLink to='/buscar'>Encuentra un Experto</NavMenuLink>
                     <NavMenuLink to='/login'>Inicia Sesión</NavMenuLink>
                     <Button to='/signup'>Únete Ahora</Button>
                 </NavMenu>
