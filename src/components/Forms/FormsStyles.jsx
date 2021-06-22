@@ -86,6 +86,21 @@ export const Select = styled.select`
 `
 export const Option = styled.option``
 
+export const Error = styled.span`
+    display: block;
+    font-size: var(--font-small);
+    color:  #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 0.5rem;
+    position: relative;
+    bottom: 25px;
+`
+
 export const FormButton = styled.button`
     width: ${props => props.buttonWidth};
     height: 40px;
