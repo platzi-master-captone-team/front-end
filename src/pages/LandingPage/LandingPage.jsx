@@ -26,7 +26,7 @@ function LandingPage () {
         <MainTitle>Los Mejores Expertos</MainTitle>
         <MainTitle>en un solo Lugar</MainTitle>
         <Subtitle>Paragraphs Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. </Subtitle>
-        <Button to='/search'>Encuentra un Experto</Button>
+        <Button to='/buscar'>Encuentra un Experto</Button>
         <Social>
           <SocialTitle>Sigamos en Contacto</SocialTitle>
           <SocialBar>
