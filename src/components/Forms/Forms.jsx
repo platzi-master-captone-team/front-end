@@ -34,8 +34,19 @@ export const RegisterExpertForm = () => {
 
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
-    const onSubmit = (data, e) => {
+    const onSubmit = async (data, e) => {
         console.log(data)
+          try {
+          const response = await fetch("http://localhost:3500/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          window.location = "/";
+        } catch (err) {
+          console.error(err.message);
+        }
     }
 
     return (
@@ -199,8 +210,19 @@ export const RegisterUserForm = () => {
 
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
-    const onSubmit = (data, e) => {
+    const onSubmit = async (data, e) => {
         console.log(data)
+          try {
+          const response = await fetch("http://localhost:3500/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          window.location = "/";
+        } catch (err) {
+          console.error(err.message);
+        }
     }
 
     return (
@@ -350,8 +372,19 @@ export const RegisterUserForm = () => {
 export const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = (data, e) => {
+    const onSubmit = async (data, e) => {
         console.log(data)
+          try {
+          const response = await fetch("http://localhost:3500/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+
+          window.location = "/";
+        } catch (err) {
+          console.error(err.message);
+        }
     }
     return ( 
         <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`420px`} maxWidth={"420px"} formPadding={"4rem"}>
