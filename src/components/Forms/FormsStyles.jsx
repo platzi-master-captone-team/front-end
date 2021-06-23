@@ -74,6 +74,32 @@ export const Input = styled.input`
     padding: 0.8rem;
 
 `
+export const Select = styled.select`
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    border: none;
+    background: #F5F5F5;
+    padding: 0.8rem;
+    cursor: pointer;
+
+`
+export const Option = styled.option``
+
+export const Error = styled.span`
+    display: block;
+    font-size: var(--font-small);
+    color:  #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 0.5rem;
+    position: relative;
+    bottom: 25px;
+`
 
 export const FormButton = styled.button`
     width: ${props => props.buttonWidth};
