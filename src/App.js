@@ -5,7 +5,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Search from './pages/Search/Search';
 import { BannerProvider } from './utils/bannerStatus';
 import { LoginProvider } from './utils/loginStatus';
-import FindExpert from './pages/FindExpert/FindExpert';
 import RegisterExpert from './pages/Register/RegisterExpert';
 import RegisterUser from './pages/Register/RegisterUser';
 import ProfileInfo from './pages/ProfileInfo/ProfileInfo'
