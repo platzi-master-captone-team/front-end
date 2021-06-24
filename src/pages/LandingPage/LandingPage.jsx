@@ -12,6 +12,8 @@ import {
   Hero
 } from "./LandingPage.styles";
 
+import metascript from './metascript';
+
 import youtube from '../../assets/images/youtube.svg';
 import facebook from '../../assets/images/facebook.svg';
 import twitter from '../../assets/images/twitter.svg';
