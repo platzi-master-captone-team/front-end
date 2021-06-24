@@ -30,12 +30,11 @@ function App() {
       <Switch>
         <Route exact path="/" component={LandingPage} ></Route>
         <Route exact path="/buscar" component={Search} ></Route>
-        <Route exact path="/search" component={FindExpert} ></Route>
         <Route exact path="/login" component={Login} ></Route>
         <Route exact path="/signup" component={SignUp} ></Route>
         <Route exact path="/registro/experto" component={RegisterExpert} ></Route>
         <Route exact path="/registro/usuario" component={RegisterUser} ></Route>
-        <Route exact path="/perfil" component={ProfileInfo} ></Route>
+        <Route exact path="/experto" component={ProfileInfo} ></Route>
         <Route path="/profile" component={Profile} ></Route>
       </Switch>
   </BrowserRouter>

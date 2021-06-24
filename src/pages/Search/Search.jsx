@@ -12,7 +12,7 @@ const list = {
 }
 
 
-const FindExpert = () => {
+const Search = () => {
     const [categories, setCategories] = useState({})
     useEffect(() => {
         setCategories(list.categories)
@@ -27,4 +27,4 @@ const FindExpert = () => {
     )
 }
 
-export default FindExpert
+export default Search
