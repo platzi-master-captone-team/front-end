@@ -1,4 +1,4 @@
-import { SectionTitle } from "../ProfileSection/ProfileSection.styles";
+import {  } from "../ProfileSection/ProfileSection.styles";
 import {  } from "./Availability.styles";
 
 const SectionAvailability = () => {
@@ -6,7 +6,7 @@ const SectionAvailability = () => {
 
     return(
         <>
-            <SectionTitle>Configuración de Disponibilidad</SectionTitle>
+            
             
         </>
     )

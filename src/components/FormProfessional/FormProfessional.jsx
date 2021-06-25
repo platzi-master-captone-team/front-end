@@ -1,4 +1,4 @@
-import { FormContainer, CheckboxContainer, CheckboxLabel, Checkbox, FormButton, InputContainer, InputLabel, Input, SelectOption } from '../FormPersonal/FormPersonal.styles';
+import { FormContainer, CheckboxContainer, CheckboxLabel, Checkbox, FormButton, InputContainer, InputLabel, Input } from '../FormPersonal/FormPersonal.styles';
 
 const FormProfessional = () => {
     return(

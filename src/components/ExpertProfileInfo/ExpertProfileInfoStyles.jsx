@@ -5,6 +5,7 @@ import linkedin from '../../assets/images/linkedin-white-logo.svg'
 import github from '../../assets/images/github-white-logo.svg'
 import save from '../../assets/images/save-icon.svg'
 
+import { Link } from 'react-router-dom';
 
 // Mixins
 const Card = ({ height }) => css`
@@ -193,6 +194,8 @@ export const AgendaTitle = styled.h3`
 `
 export const AgendaCard = styled.div`
     ${Card({height: "750px" })}
+    display: flex;
+    flex-direction: column;
 `
 export const PriceTag = styled.p`
     margin-top: 1rem;
@@ -238,7 +241,7 @@ export const ScheduleSelection = styled.a`
     cursor: pointer;
 `
 
-export const ScheduleButton = styled.button`
+export const ScheduleButton = styled(Link)`
     width: 100%;
     font-family: var(--font-primary);
     font-size: var(--font-medium);
@@ -248,6 +251,8 @@ export const ScheduleButton = styled.button`
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
-    margin: 2rem auto;    
+    margin: 2rem auto;
+    text-decoration: none;
+    color: black;    
 `
 

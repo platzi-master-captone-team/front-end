@@ -12,7 +12,7 @@ import {
   Hero
 } from "./LandingPage.styles";
 
-import metascript from './metascript';
+import './metascript';
 
 import youtube from '../../assets/images/youtube.svg';
 import facebook from '../../assets/images/facebook.svg';
