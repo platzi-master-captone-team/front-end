@@ -33,7 +33,7 @@ function App() {
         <Route exact path="/signup" component={SignUp} ></Route>
         <Route exact path="/registro/experto" component={RegisterExpert} ></Route>
         <Route exact path="/registro/usuario" component={RegisterUser} ></Route>
-        <Route exact path="/experto" component={ProfileInfo} ></Route>
+        <Route exact path="/experto/:id" component={ProfileInfo} ></Route>
         <Route path="/profile" component={Profile} ></Route>
       </Switch>
   </BrowserRouter>

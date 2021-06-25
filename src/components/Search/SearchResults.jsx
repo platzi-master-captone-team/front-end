@@ -1,11 +1,22 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'
 import { SearchResultsContainer, StyledPaginateContainer } from './SearchComponentsStyles.jsx'
 import SearchCard from './SearchCard'
 import JsonData from "../../assets/json/MOCK_DATA.json"
 
 const SearchResults = () => {
-    const [experts, setExperts] = useState(JsonData.slice(0, 50))
+    const [experts, setExperts] = useState(JsonData)
+
+    // useEffect(() => {
+    //     getData()
+    // }, [])
+    
+    // const getData = async () => {
+    //     const data = await fetch()
+    //     const expertsData = await data.json()
+    //     setExperts(expertsData)
+    // }
+
     const [pageNumber, setPageNumber]  = useState(0)
 
     const expertsPerPage = 12

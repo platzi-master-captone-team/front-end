@@ -195,14 +195,14 @@ export const AgendaCard = styled.div`
     ${Card({height: "750px" })}
 `
 export const PriceTag = styled.p`
-    margin-top: 1rem;
-    font-weight: bold;
-    font-size: var(--font-medium);    
+    margin: 1.5rem 0;
+    font-weight: medium;
+    font-size: 1.5rem;    
 `
 export const Span = styled.span`
     display: inline-block;
     margin-left: 2rem;
-    font-weight: 500;
+    font-weight: bold;
 `
 export const TimeTitle = styled.h3 `
     ${Title}

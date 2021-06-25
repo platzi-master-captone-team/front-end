@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Calendar from './Calendar'
 import { AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton } from './ExpertProfileInfoStyles'
 
-const ExpertProfileAgenda = () => {
+const ExpertProfileAgenda = ({fee}) => {
+
+    const [active, setActive]= useState(false);
+
+    const schedule = ['10:00 a.m', '11:00 a.m', '12:00 p.m', '2:00 p.m'];
+
     return (
         <AgendaCard>
             <AgendaTitle>Agenda una Consulta</AgendaTitle>
-            <PriceTag>$/Hora <Span>$25.00</Span></PriceTag>
+            <PriceTag>$/Hora <Span>${fee}</Span></PriceTag>
             <Division />
             <Calendar style={{"border": "none"}} />
             <Division />
@@ -15,13 +20,19 @@ const ExpertProfileAgenda = () => {
                 <Option>Selecciona Zona Horaria</Option>
             </Select>
             <Schedule>
-                <ScheduleSelection>10:00 a.m</ScheduleSelection>
-                <ScheduleSelection active={true}>11:00 a.m</ScheduleSelection>
-                <ScheduleSelection>12:00 p.m</ScheduleSelection>
-                <ScheduleSelection>2:00 p.m</ScheduleSelection>
-                <ScheduleSelection>3:00 p.m</ScheduleSelection>
+                {
+                  schedule.map(item => 
+                      <ScheduleSelection
+                        key={item}
+                        active={active}
+                        onClick={()=>{active === true ? setActive(false) : setActive(true) }}
+                      >
+                      {item}
+                      </ScheduleSelection>
+                  )  
+                }
             </Schedule>
-            <ScheduleButton>Agendar Consulta</ScheduleButton>
+            <ScheduleButton onClick={event =>  window.location.href='/pago'}>Agendar Consulta</ScheduleButton>
 
         </AgendaCard>
     )
