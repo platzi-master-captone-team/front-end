@@ -12,6 +12,7 @@ import Login from './pages/Login/Login';
 import SignUp from './pages/SignUp/SignUp';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Profile from './pages/Profile/Profile';
+import Payment from './pages/Payment/Payment';
 
 import Navbar from './components/Navbar/Navbar';
 import Banner from './components/Banner/Banner';
@@ -34,6 +35,7 @@ function App() {
         <Route exact path="/registro/experto" component={RegisterExpert} ></Route>
         <Route exact path="/registro/usuario" component={RegisterUser} ></Route>
         <Route exact path="/experto" component={ProfileInfo} ></Route>
+        <Route exact path="/pago" component={Payment} ></Route>
         <Route path="/profile" component={Profile} ></Route>
       </Switch>
   </BrowserRouter>

@@ -21,7 +21,7 @@ const ExpertProfileAgenda = () => {
                 <ScheduleSelection>2:00 p.m</ScheduleSelection>
                 <ScheduleSelection>3:00 p.m</ScheduleSelection>
             </Schedule>
-            <ScheduleButton>Agendar Consulta</ScheduleButton>
+            <ScheduleButton to="/pago">Agendar Consulta</ScheduleButton>
 
         </AgendaCard>
     )
