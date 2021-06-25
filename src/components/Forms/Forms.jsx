@@ -25,25 +25,32 @@ import logoTwitter from "../../assets/images/twitter-logo.svg"
 import COUNTRIES from './countries.json'  
 import TIME_ZONES from './timezones.json'  
 
-
-
 export const RegisterExpertForm = () => {
 
     const [countries] = useState(COUNTRIES)
-    const [timezones] = useState(TIME_ZONES)
 
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
     const onSubmit = async (data, e) => {
         console.log(data)
+        
+            let object = {
+                name: data.name,
+                email: data.email,
+                phone_number: data.phone_number,
+                country_id: data.country_id,
+                password: data.password,
+                role_id: data.role_id
+            }
+
           try {
-          const response = await fetch("http://localhost:3500/register", {
+          const response = await fetch("https://consultify.herokuapp.com/api/user", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify(object)
           });
 
-          window.location = "/";
+          window.location = "/login";
         } catch (err) {
           console.error(err.message);
         }
@@ -52,65 +59,18 @@ export const RegisterExpertForm = () => {
     return (
         <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`662px`} maxWidth={"662px"} formPadding={"4rem"}>
             <Title>Registrarse</Title>
-            <TextIndicator>Regístrate con tus redes sociales</TextIndicator>
-            <SocialButtons flexDirection={"row"}>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoGoogle} />Regístrate con Google</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoLinkedIn} />Regístrate con LinkedIn</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoTwitter} />Regístrate con Twitter</SocialButton>
-            </SocialButtons>
-            <TextIndicator>O llena el siguiente formulario</TextIndicator>
+            <TextIndicator>llena el siguiente formulario</TextIndicator>
             <Inputs>
                 <InputContainer>
                     <InputLabel>Nombre</InputLabel>
                     <Input
                         type="text"
-                        name="firstname"
-                        {...register("firstname", {
+                        name="name"
+                        {...register("name", {
                             required: { value: true }
                         })}
                     />
                     {errors.firstname && <Error>El nombre es requerido</Error>}
-                </InputContainer>
-                <InputContainer>
-                    <InputLabel>Apellido</InputLabel>
-                    <Input
-                        type="text"
-                        name="lastname"
-                        {...register("lastname", {
-                            required: { value: true }
-                        })}
-                    />
-                    {errors.lastname && <Error>El apellido es requerido</Error>}
-                </InputContainer>
-                <InputContainer>
-                    <InputLabel>País</InputLabel>
-                    <Select
-                        name="country"
-                        {...register("country", {
-                            required: { value: true }
-                        })}
-                    >
-                        <Option value="">Selecciona una opción</Option>
-                        {countries.map(country => (
-                            <Option key={country.code} value={country.name}>{country.name}</Option>
-                        ))}
-                    </Select>
-                    {errors.country && <Error>Selecciona una país</Error>}
-                </InputContainer>
-                <InputContainer>
-                    <InputLabel>Zona Horaria</InputLabel>
-                    <Select
-                        name="timezone"
-                        {...register("timezone", {
-                            required: { value: true }
-                        })}
-                    >
-                        <Option value="">Selecciona una zona horaria</Option>
-                        {timezones.map(timezone => (
-                            <Option key={timezone.value} value={timezone.value}>{timezone.text}</Option>
-                        ))}
-                    </Select>
-                    {errors.timezone && <Error>Selecciona una zona horaria</Error>}
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>Correo</InputLabel>
@@ -134,8 +94,8 @@ export const RegisterExpertForm = () => {
                     <InputLabel>Teléfono</InputLabel>
                     <Input
                         type="phone"
-                        name="phone"
-                        {...register("phone", {
+                        name="phone_number"
+                        {...register("phone_number", {
                             required: {
                                 value: true,
                                 message: "Ingresa un número telefónico"
@@ -146,7 +106,22 @@ export const RegisterExpertForm = () => {
                             }
                         })}
                     />
-                    {errors.phone && (<Error>{errors.phone.message}</Error>)}
+                    {errors.phone_number && (<Error>{errors.phone_number.message}</Error>)}
+                </InputContainer>
+                <InputContainer>
+                    <InputLabel>País</InputLabel>
+                    <Select
+                        name="country_id"
+                        {...register("country_id", {
+                            required: { value: true }
+                        })}
+                    >
+                        <Option value="">Selecciona una opción</Option>
+                        {countries.map(country => (                       
+                            <Option key={country.id} value="1">{country.name}</Option>
+                        ))}
+                    </Select>
+                    {errors.country_id && <Error>Selecciona una país</Error>}
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>Contraseña</InputLabel>
@@ -196,6 +171,15 @@ export const RegisterExpertForm = () => {
                     />
                     {errors.file && <Error>Selecciona un archivo</Error>}
                 </InputContainer>
+                <Input 
+                    type="hidden" 
+                    name="role_id" 
+                    value="1"
+                    {...register("role_id", {
+                        required: { value: true },
+                    })}
+                >
+                </Input>
                 <FormButton type="submit" buttonWidth={"312px"} >Registrarse</FormButton>
 
             </Inputs>
@@ -206,20 +190,28 @@ export const RegisterExpertForm = () => {
 
 export const RegisterUserForm = () => {
     const [countries] = useState(COUNTRIES)
-    const [timezones] = useState(TIME_ZONES)
 
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
     const onSubmit = async (data, e) => {
         console.log(data)
+        let object = {
+                name: data.name,
+                email: data.email,
+                phone_number: data.phone_number,
+                country_id: data.country_id,
+                password: data.password,
+                role_id: data.role_id
+            }
+
           try {
-          const response = await fetch("http://localhost:3500/register", {
+          const response = await fetch("https://consultify.herokuapp.com/api/user", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
+            body: JSON.stringify(object)
           });
 
-          window.location = "/";
+          window.location = "/login";
         } catch (err) {
           console.error(err.message);
         }
@@ -240,53 +232,12 @@ export const RegisterUserForm = () => {
                     <InputLabel>Nombre</InputLabel>
                     <Input
                         type="text"
-                        name="firstname"
-                        {...register("firstname", {
+                        name="name"
+                        {...register("name", {
                             required: { value: true }
                         })}
                     />
-                    {errors.firstname && <Error>El nombre es requerido</Error>}
-                </InputContainer>
-                <InputContainer>
-                    <InputLabel>Apellido</InputLabel>
-                    <Input
-                        type="text"
-                        name="lastname"
-                        {...register("lastname", {
-                            required: { value: true }
-                        })}
-                    />
-                    {errors.lastname && <Error>El apellido es requerido</Error>}
-                </InputContainer>
-                <InputContainer>
-                    <InputLabel>País</InputLabel>
-                    <Select
-                        name="country"
-                        {...register("country", {
-                            required: { value: true }
-                        })}
-                    >
-                        <Option value="">Selecciona una opción</Option>
-                        {countries.map(country => (
-                            <Option key={country.code} value={country.name}>{country.name}</Option>
-                        ))}
-                    </Select>
-                    {errors.country && <Error>Selecciona una país</Error>}
-                </InputContainer>
-                <InputContainer>
-                    <InputLabel>Zona Horaria</InputLabel>
-                    <Select
-                        name="timezone"
-                        {...register("timezone", {
-                            required: { value: true }
-                        })}
-                    >
-                        <Option value="">Selecciona una zona horaria</Option>
-                        {timezones.map(timezone => (
-                            <Option key={timezone.value} value={timezone.value}>{timezone.text}</Option>
-                        ))}
-                    </Select>
-                    {errors.timezone && <Error>Selecciona una zona horaria</Error>}
+                    {errors.name && <Error>El nombre es requerido</Error>}
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>Correo</InputLabel>
@@ -310,8 +261,8 @@ export const RegisterUserForm = () => {
                     <InputLabel>Teléfono</InputLabel>
                     <Input
                         type="phone"
-                        name="phone"
-                        {...register("phone", {
+                        name="phone_number"
+                        {...register("phone_number", {
                             required: {
                                 value: true,
                                 message: "Ingresa un número telefónico"
@@ -322,7 +273,22 @@ export const RegisterUserForm = () => {
                             }
                         })}
                     />
-                    {errors.phone && (<Error>{errors.phone.message}</Error>)}
+                    {errors.phone_number && (<Error>{errors.phone_number.message}</Error>)}
+                </InputContainer>
+                <InputContainer>
+                    <InputLabel>País</InputLabel>
+                    <Select
+                        name="country_id"
+                        {...register("country_id", {
+                            required: { value: true }
+                        })}
+                    >
+                        <Option value="">Selecciona una opción</Option>
+                        {countries.map(country => (
+                            <Option key={country.id} value="1">{country.name}</Option>
+                        ))}
+                    </Select>
+                    {errors.country_id && <Error>Selecciona una país</Error>}
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>Contraseña</InputLabel>
@@ -363,6 +329,15 @@ export const RegisterUserForm = () => {
                     />
                     {errors.confirm && <Error>{errors.confirm.message}</Error>}
                 </InputContainer>
+                <Input 
+                    type="hidden" 
+                    name="role_id" 
+                    value="2"
+                    {...register("role_id", {
+                        required: { value: true },
+                    })}
+                >
+                </Input>
                 <FormButton type="submit" buttonWidth={"312px"} >Registrarse</FormButton>
             </Inputs>
         </FormContainer>
