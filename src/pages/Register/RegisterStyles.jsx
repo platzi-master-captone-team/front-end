@@ -12,10 +12,12 @@ export const MainContent = styled.div`
     
 `
 export const ImgWrapper = styled.div`
-    /* text-align: center; */
+    width: 200px;
 `
 
 export const RegisterImage = styled.img`
     width: 380px;
-    /* width: 400px; */
+    @media (max-width: 1005px){
+        width: 50%;
+    }
 `
