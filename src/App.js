@@ -13,11 +13,13 @@ import SignUp from './pages/SignUp/SignUp';
 import LandingPage from './pages/LandingPage/LandingPage';
 import Profile from './pages/Profile/Profile';
 import Payment from './pages/Payment/Payment';
+import Chat from './pages/Chat/Chat';
 
 import Navbar from './components/Navbar/Navbar';
 import Banner from './components/Banner/Banner';
 
 import GlobalStyles from './GlobalStyles';
+
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
         <Route exact path="/registro/usuario" component={RegisterUser} ></Route>
         <Route exact path="/experto" component={ProfileInfo} ></Route>
         <Route exact path="/pago" component={Payment} ></Route>
+        <Route exact path="/chat" component={Chat} ></Route>
         <Route path="/profile" component={Profile} ></Route>
       </Switch>
   </BrowserRouter>
