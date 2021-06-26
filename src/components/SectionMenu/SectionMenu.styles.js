@@ -16,4 +16,5 @@ export const MenuItem = styled(Link)`
     padding: 1rem;
     color: ${props => props.active === props.id ? 'black' : 'grey'};
     cursor: pointer;
+    display: ${props => props.$show === props.profile ? 'inline' : 'none'};
 `

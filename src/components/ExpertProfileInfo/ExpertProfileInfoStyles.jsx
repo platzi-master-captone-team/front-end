@@ -5,6 +5,7 @@ import linkedin from '../../assets/images/linkedin-white-logo.svg'
 import github from '../../assets/images/github-white-logo.svg'
 import save from '../../assets/images/save-icon.svg'
 
+import { Link } from 'react-router-dom';
 
 // Mixins
 const Card = ({ height }) => css`
@@ -274,7 +275,7 @@ export const ScheduleSelection = styled.a`
     cursor: pointer;
 `
 
-export const ScheduleButton = styled.button`
+export const ScheduleButton = styled(Link)`
     width: 100%;
     font-family: var(--font-primary);
     font-size: var(--font-medium);
