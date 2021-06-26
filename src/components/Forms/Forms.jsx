@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-
+import { useHistory } from 'react-router';
+import axios from 'axios';
+import cookie from 'js-cookie'
 import { 
     FormContainer, 
     Title, TextIndicator, 
@@ -22,8 +24,7 @@ import logoLinkedIn from "../../assets/images/linkedin-logo.svg"
 import logoTwitter from "../../assets/images/twitter-logo.svg"  
 
 
-import COUNTRIES from './countries.json'  
-import TIME_ZONES from './timezones.json'  
+import COUNTRIES from '../../assets/json/countries.json'  
 
 export const RegisterExpertForm = () => {
 
@@ -57,7 +58,7 @@ export const RegisterExpertForm = () => {
     }
 
     return (
-        <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`662px`} maxWidth={"662px"} formPadding={"4rem"}>
+        <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`662px`}  formPadding={"4rem"}>
             <Title>Registrarse</Title>
             <TextIndicator>llena el siguiente formulario</TextIndicator>
             <Inputs>
@@ -218,7 +219,7 @@ export const RegisterUserForm = () => {
     }
 
     return (
-        <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`662px`} maxWidth={"662px"} formPadding={"4rem"}>
+        <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`662px`} formPadding={"4rem"}>
             <Title>Registrarse</Title>
             <TextIndicator>Regístrate con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"row"}>
@@ -345,33 +346,64 @@ export const RegisterUserForm = () => {
 }
 
 export const LoginForm = () => {
+
+    let history = useHistory();
+    
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const onSubmit = async (data, e) => {
-        console.log(data)
-          try {
-          const response = await fetch("http://localhost:3500/login", {
+    const responseSuccessGoogle = async (response) => {
+        console.log(response)
+        await axios({
             method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(data)
-          });
-
-          window.location = "/";
-        } catch (err) {
-          console.error(err.message);
-        }
+            url: "https://consultify.herokuapp.com/api/user/auth/google",
+            data: {token: response.token}
+        }).then(response => {
+            console.log(response)
+        })
     }
+
+    const responseErrorGoogle = () => {
+
+    }
+
+
+
+    const onSubmit = async (data, e) => {
+        e.preventDefault()
+        console.log(data)
+
+         let object = {
+            email: data.email,
+            password: data.password
+        }
+
+        
+        await axios.post('https://consultify.herokuapp.com/api/user/login', object)
+            .then(response => {
+                console.log("Status: ", response.status)
+                console.log("Data: ", response.data)
+                cookie.set("token", response.data.token)
+                history.push('/profile/dashboard')
+            }).catch(error => {
+                console.log(error)
+            })
+
+    }
+
+    
+
+
     return ( 
-        <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`420px`} maxWidth={"420px"} formPadding={"4rem"}>
+        <FormContainer onSubmit={handleSubmit(onSubmit)} formWidth={`420px`} formPadding={"4rem"}>
             <Title>Login</Title>
             <TextIndicator>Ingresa con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"column"} >
-                <SocialButton marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoGoogle}/>Regístrate con Google</SocialButton>
-                <SocialButton marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoLinkedIn}/>Regístrate con LinkedIn</SocialButton>
-                <SocialButton marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoTwitter}/>Regístrate con Twitter</SocialButton>
+                <SocialButton marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoGoogle}/>Ingresa con Google</SocialButton>
+                <SocialButton onChange={responseSuccessGoogle} marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoLinkedIn}/>Ingresa con LinkedIn</SocialButton>
             </SocialButtons>
             <TextIndicator>O ingresa con tu correo</TextIndicator>
             <Inputs>
+                <InputLabel>Correo</InputLabel>
                 <Input
                     type="email"
                     name="email"
@@ -387,20 +419,18 @@ export const LoginForm = () => {
                     })}
                 />
                 {errors.email && (<Error>{errors.email.message}</Error>)}
-                <InputContainer>
-                    <InputLabel>Contraseña</InputLabel>
-                    <Input
-                        type="password"
-                        name="password"
-                        {...register("password", {
-                            required: {
-                                value: true,
-                                message: "Ingresa una contraseña"
-                            }
-                        })}
-                    />
-                    {errors.password && <Error>{errors.password.message}</Error>}
-                </InputContainer>
+                <InputLabel>Contraseña</InputLabel>
+                <Input
+                    type="password"
+                    name="password"
+                    {...register("password", {
+                        required: {
+                            value: true,
+                            message: "Ingresa una contraseña"
+                        }
+                    })}
+                />
+                {errors.password && <Error>{errors.password.message}</Error>}
                 
                 <FormButton type="submit" buttonWidth={"100%"}>Ingresar</FormButton>
 
