@@ -22,7 +22,6 @@ const Search = () => {
         <MainContainer>
             <SearchBar />
             <SearchResults />
-            <SearchPagination />
         </MainContainer>
     )
 }

@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { LoginContext } from '../../utils/loginStatus';
+import cookie from 'js-cookie'
 import { 
     Header,
     BrandTitle,
@@ -30,6 +31,7 @@ const Navbar = () => {
     function CloseSession () {
         setLogin({...login, status:false});
         setUserMenu(false);
+        cookie.remove('token')
         history.push("/");
     }
 

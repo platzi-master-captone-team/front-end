@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const FormContainer = styled.form`
     width: ${props => props.formWidth};
-    max-width: ${props => props.maxWidth};
     padding: ${props => props.formPadding};
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -34,7 +33,7 @@ export const SocialButton = styled.button`
     align-items: center;
     width: ${props => props.buttonWidth};
     height: 40px;
-    border: 0.8px solid #F0F0F0;
+    border: 0.8px solid #e2dfdf;
     border-radius: 1.2rem;
     font-weight: bold;
     font-size: var(--font-x-small);
@@ -55,11 +54,11 @@ export const Inputs = styled.div`
 `
 
 export const InputContainer = styled.div`
-    width: 250px;
+    width: ${props => props.width || "250px"};
 `
 export const InputLabel = styled.label`
     display: inline-block;
-    width: 280px;
+    width: 100%;
     font-weight: bold;
     font-size: var(--font-medium);
     margin-bottom: 0.5rem;
@@ -70,7 +69,7 @@ export const Input = styled.input`
     margin-bottom: 2rem;
     border-radius: 1rem;
     border: none;
-    background: #F5F5F5;
+    background: #f3f3f3;
     padding: 0.8rem;
 
 `

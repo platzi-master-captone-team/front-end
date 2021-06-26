@@ -1,29 +1,30 @@
-import React from 'react'
-import Calendar from './Calendar'
-import { AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton } from './ExpertProfileInfoStyles'
+import React, { useState } from 'react'
+import { openPopupWidget } from 'react-calendly'
+import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton } from './ExpertProfileInfoStyles'
 
-const ExpertProfileAgenda = () => {
+const ExpertProfileAgenda = ({fee}) => {
+
+    const onClick = () => openPopupWidget({ 
+            url: "https://calendly.com/davidgaleano",
+            pageSettings: {
+                backgroundColor: "fffff",
+                hideEventTypeDetails: false,
+                hideLandingPageDetails: false,
+                primaryColor: "00a2ff",
+                textColor: "4d5055"
+
+            }
+    });
+
     return (
-        <AgendaCard>
-            <AgendaTitle>Agenda una Consulta</AgendaTitle>
-            <PriceTag>$/Hora <Span>$25.00</Span></PriceTag>
-            <Division />
-            <Calendar style={{"border": "none"}} />
-            <Division />
-            <TimeTitle>Horarios Disponibles</TimeTitle>
-            <Select>
-                <Option>Selecciona Zona Horaria</Option>
-            </Select>
-            <Schedule>
-                <ScheduleSelection>10:00 a.m</ScheduleSelection>
-                <ScheduleSelection active={true}>11:00 a.m</ScheduleSelection>
-                <ScheduleSelection>12:00 p.m</ScheduleSelection>
-                <ScheduleSelection>2:00 p.m</ScheduleSelection>
-                <ScheduleSelection>3:00 p.m</ScheduleSelection>
-            </Schedule>
-            <ScheduleButton to="/pago">Agendar Consulta</ScheduleButton>
-
-        </AgendaCard>
+        <AgendaSection>
+            <AgendaCard>
+                <AgendaTitle>Agenda una Consulta</AgendaTitle>
+                <PriceTag>$/Hora <Span>${fee}</Span></PriceTag>
+                <Division />
+                <ScheduleButton onClick={onClick}>Agendar Consulta</ScheduleButton>
+            </AgendaCard>
+        </AgendaSection>
     )
 }
 

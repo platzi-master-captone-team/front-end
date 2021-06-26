@@ -6,10 +6,18 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
+<<<<<<< HEAD
+    "axios": "^0.21.1",
+    "js-cookie": "^2.2.1",
+=======
     "device-detector-js": "^2.2.10",
+>>>>>>> 6c1a392cbb889e82c4b55b85a8aebda92f5d3ed3
     "react": "^17.0.2",
+    "react-calendly": "^2.0.4",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
     "react-hook-form": "^7.9.0",
+    "react-paginate": "^7.1.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "rechart": "^0.0.1",

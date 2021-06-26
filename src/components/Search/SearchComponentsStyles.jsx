@@ -66,23 +66,27 @@ export const Card = styled.div`
     flex-direction: column;
     justify-content: center;
     flex-grow: 0;
-    width: 200px;
+    width: 260px;
     height: auto;
+    overflow: hidden;
     border-radius: 15px;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 2rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     @media (max-width: 768px) {
-        flex-grow: 1;
+        width: 300px;
+        flex-grow: 0;
         padding: 2rem 2.5rem;
-        height: 400px;
-        justify-content: space-around;
+        justify-content: space-between;
+    }    
+    @media (max-width: 664px) {
+        flex-grow: 1;
     }    
 `
 export const Avatar = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 4rem;
+    height: 4rem;
     border-radius: 50%;
     background: grey;
    @media (max-width: 768px) {
@@ -99,11 +103,12 @@ export const Name = styled.h3`
     font-weight: bold;
     font-size: var(--font-medium);
     font-family: var(--font-secondary);
+    margin-bottom: 0.2rem;
     @media (max-width: 768px) {
         font-size: var(--font-large);
     }    
 `
-export const Speciality = styled.p`
+export const Profession = styled.p`
     font-weight: bold;
     font-size: var(--font-small);
     color: #777777;
@@ -122,12 +127,12 @@ export const Description = styled.p`
     font-weight: normal;
     font-size: var(--font-small);
     line-height: 18px;
+    letter-spacing: 1px;
     @media (max-width: 768px) {
         font-size: var(--font-medium);
     }    
 `
 export const Button = styled.a`
-    display: inline-block;
     font-weight: bold;
     background: var(--color-primary);
     padding: 0.5rem 2rem;
@@ -140,6 +145,31 @@ export const Button = styled.a`
 
 `
 // Pagination
+export const StyledPaginateContainer = styled.div`
+    width: 100%;
+    margin-top: 2rem;
+    .paginationBttns {
+        font-size: var(--font-medium);
+        width: 100%;
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+    .paginationBttns a {
+        padding: 14px 20px;
+        border-radius: 8px;
+        font-weight: bold;
+        color: inherit;
+        text-decoration: none;
+        text-align: center;
+        margin-right: 5px;
+        cursor: pointer;
+    }
+    .paginationActive a {
+      background-color: var(--color-primary);
+    }
+
+`
 export const PaginationContainer = styled.div`
     display: flex;
     justify-content: center;

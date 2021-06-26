@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router'
 import { 
     ProfileSection, 
     ProfileCard, 
@@ -22,25 +23,34 @@ import {
 import DEFAULT_AVATAR from '../../assets/images/default-avatar.png'
 
 const ExpertProfileInfo = ({
-    name = "María Herrera", 
-    description = "Lorem excepteur cillum amet officia nostrud. Ea aute sunt tempor cillum cupidatat aliquip fugiat ipsum anim pariatur id consectetur fugiat. Sit excepteur velit irure voluptate mollit fugiat duis anim pariatur minim laborum aute. Esse consectetur irure ex dolore proident enim laborum aliquip proident ullamco esse. Dolore sit nulla in sint mollit voluptate esse anim mollit reprehenderit laboris non.", 
-    expertise= "Project Manager", 
-    location= "Bogotá, Col. UTC-5 America/Bogota", 
-    avatar = DEFAULT_AVATAR  }) => {
+    name, 
+    profession, 
+    technologies,
+    location, 
+    github,
+    linkedin,
+    resume,
+    description, 
+    experience,
+    education,
+
+    avatar = DEFAULT_AVATAR}) => {
+
+    
     return (
         <ProfileSection>
             <ProfileCard>
                 <Avatar src={avatar} />
                 <Name>{name}</Name>
-                <Expertise>{expertise}</Expertise>
+                <Expertise>{profession}</Expertise>
                 <Location>{location}</Location>
                 <Social>
-                    <SocialButton value={"github"}>Github</SocialButton>
-                    <SocialButton value={"linkedin"}>LinkedIn</SocialButton>
-                    <SocialButton value={"curriculum"}>Currículo</SocialButton>
+                    <SocialButton value={"github"} href={github} target="_blank">Github</SocialButton>
+                    <SocialButton value={"linkedin"} href={linkedin} target="_blank">LinkedIn</SocialButton>
+                    <SocialButton value={"curriculum"} href={resume} target="_blank">Currículo</SocialButton>
                 </Social>
                 <Skills>
-                    <SkillTag>UX Research</SkillTag>
+                    <SkillTag>{technologies}</SkillTag>
                     <SkillTag>CX Strategy</SkillTag>
                     <SkillTag>Project Management</SkillTag>
                 </Skills>
@@ -50,12 +60,12 @@ const ExpertProfileInfo = ({
             <ExperienceCard>
                 <ExperienceTitle>Experiencia</ExperienceTitle>
                 <Division />
-                <ExperienceInfo>{description}</ExperienceInfo>
+                <ExperienceInfo>{experience}</ExperienceInfo>
             </ExperienceCard>
             <EducationCard>
                 <EducationTitle>Educación</EducationTitle>
                 <Division />
-                <EducationInfo>{description}</EducationInfo>
+                <EducationInfo>{education}</EducationInfo>
             </EducationCard>
         </ProfileSection>
     )
