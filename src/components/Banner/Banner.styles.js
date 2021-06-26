@@ -8,6 +8,7 @@ export const BannerContainer = styled.section`
         width: 100%;
         background: var(--color-primary);
         padding: 0.5rem;
+        
 `
 
 export const BannerMessage = styled.p`
@@ -15,6 +16,10 @@ export const BannerMessage = styled.p`
     font-weight: 700;
     width: 100%;
     text-align:center;
+    @media (max-width: 760px) {
+        display: flex;
+        flex-direction:column;
+    }
 `
 
 export const CloseBanner = styled.div`
@@ -31,7 +36,8 @@ export const BannerLink = styled(Link)`
     background: var(--color-tertiary);
     border-radius: 15px;
     text-decoration: none;
-    margin: 0.5rem 1rem;
+    margin: 0.5rem 1rem 0;
     padding: 0.1rem 1rem;
     display: ${props => props.type !== props.id ? 'none' : 'inline'};
+    align-self: center;
 `

@@ -9,7 +9,8 @@ import {
   Social,
   Button,
   Main,
-  Hero
+  Hero,
+  SmallHero
 } from "./LandingPage.styles";
 
 import './metascript';
@@ -20,14 +21,13 @@ import twitter from '../../assets/images/twitter.svg';
 import linkedin from '../../assets/images/linkedin.svg';
 import instagram from '../../assets/images/instagram.svg';
 
-
 function LandingPage () {
   return (
     <Landing>
       <Main>
-        <MainTitle>Los Mejores Expertos</MainTitle>
-        <MainTitle>en un solo Lugar</MainTitle>
-        <Subtitle>Paragraphs Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. </Subtitle>
+        <MainTitle>Los Mejores Expertos en un solo lugar</MainTitle>
+        <Subtitle>Consultify es un marketplace que permite conectar a empresas, fundaciones y emprendedores de todo el mundo con developers verificados de Colombia, México y Ecuador.  </Subtitle>
+        <SmallHero/>
         <Button to='/buscar'>Encuentra un Experto</Button>
         <Social>
           <SocialTitle>Sigamos en Contacto</SocialTitle>
