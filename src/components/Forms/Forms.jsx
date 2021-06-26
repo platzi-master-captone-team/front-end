@@ -362,11 +362,6 @@ export const LoginForm = () => {
         })
     }
 
-    const responseErrorGoogle = () => {
-
-    }
-
-
 
     const onSubmit = async (data, e) => {
         e.preventDefault()

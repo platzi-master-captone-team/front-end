@@ -1,12 +1,18 @@
 import styled from 'styled-components'
 
 export const FormContainer = styled.form`
+    display: Flex;
+    flex-direction: column;
     width: ${props => props.formWidth};
     padding: ${props => props.formPadding};
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     font-family: "Karla", sans-serif;
+    @media (max-width: 768px){
+        width: 90%;
+        flex-grow: 1;
+    }
 
 `
 export const Title = styled.h2`

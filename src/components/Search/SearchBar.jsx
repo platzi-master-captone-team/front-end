@@ -7,22 +7,29 @@ const SearchBar = () => {
             <List>
                 <Item>
                     <Select>
-                        <Option selected disabled>Especialidad</Option>
+                        <Option>Especialidad</Option>
+                        <Option >Frontend</Option>
+                        <Option >Backend</Option>
+                        <Option >Data Science</Option>
                     </Select>
                 </Item>
                 <Item>
                     <Select>
                         <Option>Tecnología</Option>
+                        <Option>Node</Option>
+                        <Option>PHP</Option>
+                        <Option>Django</Option>
+                        <Option>Rails</Option>
+                        <Option>Python</Option>
+                        <Option>R</Option>
+                        <Option>Scala</Option>
                     </Select>
                 </Item>
                 <Item>
                     <Select>
                         <Option>Precio</Option>
-                    </Select>
-                </Item>
-                <Item>
-                    <Select>
-                        <Option>Ordenar Por...</Option>
+                        <Option>Menor Precio</Option>
+                        <Option>Mayor Precio</Option>
                     </Select>
                 </Item>
             </List>  
