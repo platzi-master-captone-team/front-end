@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import { Link } from 'react-router-dom';
 import hero from '../../assets/images/hero.png';
+import idea from '../../assets/images/login-image.png';
 
 export const Landing = styled.main`
     max-width: 1366px;
@@ -12,11 +13,18 @@ export const Landing = styled.main`
     justify-items: center;
     align-items: center;
     margin: auto;
+    @media (max-width: 760px) {
+        grid-template-columns: 1fr;
+        
+    }
 `
 
 export const Main = styled.section`
     display: flex;
     flex-direction: column;
+    @media (max-width: 760px) {
+        align-items:center;
+    }
 `
 
 export const MainTitle = styled.span`
@@ -85,7 +93,21 @@ export const Hero = styled.img`
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 1rem;
+    @media (max-width: 760px) {
+        display:none;
+    }
 `
 Hero.defaultProps = {
     src: hero
+};
+
+export const SmallHero = styled.img`
+    max-width: 250px;
+    margin: 1rem;
+    @media (min-width: 760px) {
+        display:none;
+    }
+`
+SmallHero.defaultProps = {
+    src: idea,
 };

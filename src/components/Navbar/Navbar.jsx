@@ -5,6 +5,7 @@ import {
     Header,
     BrandTitle,
     NavMenuLink,
+    NavBarContainer,
     UserMenuDropdown,
     UserMenuOption,
     NavMenu,
@@ -46,6 +47,7 @@ const Navbar = () => {
     return (
         <>
             <Header>
+            <NavBarContainer>
                 <Logo/>
                 <BrandTitle to='/'>Consultify</BrandTitle>
                 <NavMenu>
@@ -64,6 +66,7 @@ const Navbar = () => {
                     </UserMenu>
                      
                 </NavMenu>
+            </NavBarContainer>
             </Header>
         </>
     )
