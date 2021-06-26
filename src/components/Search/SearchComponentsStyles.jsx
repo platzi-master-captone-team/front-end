@@ -75,10 +75,13 @@ export const Card = styled.div`
     padding: 2rem;
     margin-bottom: 2rem;
     @media (max-width: 768px) {
-        flex-grow: 1;
+        width: 300px;
+        flex-grow: 0;
         padding: 2rem 2.5rem;
-        height: 400px;
-        justify-content: space-around;
+        justify-content: space-between;
+    }    
+    @media (max-width: 664px) {
+        flex-grow: 1;
     }    
 `
 export const Avatar = styled.img`

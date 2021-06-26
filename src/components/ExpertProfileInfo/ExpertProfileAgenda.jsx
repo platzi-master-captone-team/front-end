@@ -1,40 +1,30 @@
 import React, { useState } from 'react'
-import Calendar from './Calendar'
-import { AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton } from './ExpertProfileInfoStyles'
+import { openPopupWidget } from 'react-calendly'
+import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton } from './ExpertProfileInfoStyles'
 
 const ExpertProfileAgenda = ({fee}) => {
 
-    const [active, setActive]= useState(false);
+    const onClick = () => openPopupWidget({ 
+            url: "https://calendly.com/davidgaleano",
+            pageSettings: {
+                backgroundColor: "fffff",
+                hideEventTypeDetails: false,
+                hideLandingPageDetails: false,
+                primaryColor: "00a2ff",
+                textColor: "4d5055"
 
-    const schedule = ['10:00 a.m', '11:00 a.m', '12:00 p.m', '2:00 p.m'];
+            }
+    });
 
     return (
-        <AgendaCard>
-            <AgendaTitle>Agenda una Consulta</AgendaTitle>
-            <PriceTag>$/Hora <Span>${fee}</Span></PriceTag>
-            <Division />
-            <Calendar style={{"border": "none"}} />
-            <Division />
-            <TimeTitle>Horarios Disponibles</TimeTitle>
-            <Select>
-                <Option>Selecciona Zona Horaria</Option>
-            </Select>
-            <Schedule>
-                {
-                  schedule.map(item => 
-                      <ScheduleSelection
-                        key={item}
-                        active={active}
-                        onClick={()=>{active === true ? setActive(false) : setActive(true) }}
-                      >
-                      {item}
-                      </ScheduleSelection>
-                  )  
-                }
-            </Schedule>
-            <ScheduleButton onClick={event =>  window.location.href='/pago'}>Agendar Consulta</ScheduleButton>
-
-        </AgendaCard>
+        <AgendaSection>
+            <AgendaCard>
+                <AgendaTitle>Agenda una Consulta</AgendaTitle>
+                <PriceTag>$/Hora <Span>${fee}</Span></PriceTag>
+                <Division />
+                <ScheduleButton onClick={onClick}>Agendar Consulta</ScheduleButton>
+            </AgendaCard>
+        </AgendaSection>
     )
 }
 

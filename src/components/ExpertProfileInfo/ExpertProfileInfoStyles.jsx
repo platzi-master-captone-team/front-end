@@ -8,16 +8,19 @@ import save from '../../assets/images/save-icon.svg'
 
 // Mixins
 const Card = ({ height }) => css`
-    width: 390px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
     height: ${height || "auto"}; 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
-    padding: 2rem;
-    margin-bottom: 2rem;
+    padding: 3rem 3rem;
+    margin: 0 auto 2rem auto;
     @media (max-width: 768px) {
         flex-grow: 1;
-        width: 100%;
+        width: 90%;
+        padding: 3rem 4rem;
     }
 `
 const Title =  css`
@@ -26,7 +29,8 @@ const Title =  css`
     font-size: var(--font-large);
     margin: 1rem 0 0.2rem;
     @media (max-width: 768px) {
-        font-size: var(--font-large);
+        align-self: center;
+        font-size: var(--font-medium);
     }    
 `
 // Variables
@@ -39,17 +43,26 @@ export const Division = styled.hr`
 
 // Profile Info
 export const ProfileSection = styled.div`
+    width: 50%;
     display: flex;
     flex-direction: column;
+    @media (max-width: 768px) {
+        width: 100%;
+    }    
 `
 export const ProfileCard = styled.div`
     ${Card}
 `
 export const Avatar = styled.img`
-    width: 100px;
-    height: 100px; 
+    width: 7rem;
+    height: 7rem; 
     background: gray;
     border-radius: 50%;
+    @media (max-width: 768px) {
+        width: 9rem;
+        height: 9rem;
+        align-self: center;
+    }         
 `
 export const Name = styled.h3`
     ${Title}
@@ -60,6 +73,10 @@ export const Expertise = styled.p`
     color: #777777;
     line-height: 15px;
     margin-top: 0.5rem;
+    @media (max-width: 768px) {
+        align-self: center;
+        font-size: var(--font-medium);
+    }         
 `
 export const Location = styled.p`
     display: flex;
@@ -69,6 +86,11 @@ export const Location = styled.p`
     color: #777777;
     line-height: 15px;
     margin: 0.5rem 0;
+    @media (max-width: 768px) {
+        font-size: var(--font-medium);
+        line-height: 2rem;
+        align-self: center;
+    }         
     &::before {
         content: "";
         display: block;
@@ -127,6 +149,7 @@ export const SocialButton = styled.a `
         margin-bottom: 1rem;
         margin-right: 20px;
         font-size: var(--font-medium);
+        
     }
 
 `
@@ -145,6 +168,10 @@ export const SkillTag = styled.div `
     padding: 0.4rem 1rem;
     border-radius: 6px;
     margin: 0 1rem 1rem 0;
+    @media (max-width: 768px) {
+        font-size: var(--font-medium);
+    }   
+    
 `
 
 export const Description = styled.p`
@@ -188,16 +215,25 @@ export const EducationInfo = styled.p`
 `
 
 // Profile Agenda
-export const AgendaTitle = styled.h3`
-    ${Title}
+export const AgendaSection = styled.div`
+    width: 50%;
+    @media (max-width: 768px) {
+        width: 100%;
+    }    
 `
 export const AgendaCard = styled.div`
-    ${Card({height: "750px" })}
+    ${Card}
+`
+export const AgendaTitle = styled.h3`
+    ${Title}
 `
 export const PriceTag = styled.p`
     margin: 1.5rem 0;
     font-weight: medium;
-    font-size: 1.5rem;    
+    font-size: 1.5rem;
+    @media (max-width: 768px) {
+        font-size: 2rem;
+    }        
 `
 export const Span = styled.span`
     display: inline-block;
@@ -248,6 +284,9 @@ export const ScheduleButton = styled.button`
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
-    margin: 2rem auto;    
+    margin: 2rem auto;   
+    @media (max-width: 768px) {
+        font-size: var(--font-large);
+    }         
 `
 
