@@ -31,6 +31,9 @@ export const SocialButtons = styled.div`
     display: flex;
     flex-direction: ${props => props.flexDirection};
     justify-content: space-between;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 
 `
 export const SocialButton = styled.button`
@@ -45,7 +48,10 @@ export const SocialButton = styled.button`
     font-size: var(--font-x-small);
     margin-bottom: ${props => props.marginBottom};
     cursor: pointer;
-    
+    @media (max-width: 768px) {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 `
 export const SocialButtonImg = styled.img`
     width: 1.2rem;
@@ -61,6 +67,9 @@ export const Inputs = styled.div`
 
 export const InputContainer = styled.div`
     width: ${props => props.width || "250px"};
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 export const InputLabel = styled.label`
     display: inline-block;
@@ -87,7 +96,6 @@ export const Select = styled.select`
     background: #F5F5F5;
     padding: 0.8rem;
     cursor: pointer;
-
 `
 export const Option = styled.option``
 
@@ -115,5 +123,8 @@ export const FormButton = styled.button`
     cursor: pointer;
     border-radius: 1rem;
     margin: 0 auto;
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 
 `

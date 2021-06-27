@@ -9,15 +9,17 @@ export const MainContent = styled.div`
     height: auto;
     margin: 3.5rem auto;
     max-width: 1366px; 
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
     
 `
 export const ImgWrapper = styled.div`
-    width: 200px;
+    @media (max-width: 1024px) {
+        display: none;
+    }
 `
 
 export const RegisterImage = styled.img`
     width: 380px;
-    @media (max-width: 1005px){
-        width: 50%;
-    }
 `
