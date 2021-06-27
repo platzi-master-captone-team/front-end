@@ -41,7 +41,7 @@ function App() {
         <ProtectedRoute path="/profile" component={Profile} ></ProtectedRoute>
         <Route exact path="/experto" component={ProfileInfo} ></Route>
         <Route exact path="/pago" component={Payment} ></Route>
-        <Route exact path="/chat" component={Chat} ></Route>
+        <Route path="/chat/:id" component={Chat} ></Route>
         <Route path="/profile" component={Profile} ></Route>
       </Switch>
   </BrowserRouter>

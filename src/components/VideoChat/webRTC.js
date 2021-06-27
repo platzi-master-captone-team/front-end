@@ -4,7 +4,9 @@
 
 import { io } from 'socket.io-client';
 
-//Defining some global utility variables
+if(window.location.pathname.startsWith('/chat')) {
+
+  //Defining some global utility variables
 let isChannelReady = false;
 let isInitiator = false;
 let isStarted = false;
@@ -32,7 +34,7 @@ const localStreamConstraints = {
 };
 
 // Prompting for room name:
-let room = prompt('Enter room name:');
+let room = window.location.pathname.split('/')[1];
 
 //Initializing socket.io
 const socket = io('https://rubdevs.herokuapp.com');
@@ -280,4 +282,6 @@ function muteAudio() {
 function muteVideo() {
   let enabled = localVideo.srcObject.getTracks()[1].enabled;
   localVideo.srcObject.getTracks()[1].enabled = !enabled;
+}
+
 }

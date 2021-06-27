@@ -1,13 +1,14 @@
 // Import script containing WebRTC related functions
-import './main.js';
+import './webRTC';
 //Import TURN config
-import './config.js';
+//import './config.js';
 // Import WebRTC adapter for compatibility with all the browsers
 //import adapter from 'webrtc-adapter';
 //Import SocketIO for signalling
 //import '/socket.io/socket.io.js';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 import {
     Video,
     ChatMain,
@@ -26,7 +27,7 @@ import {
 } from './VideoChat.styles';
 
 const VideoChat = () => {
-
+    
     const [autoplay, setAutoplay] = useState('autoplay');
     const [muted, setMuted] = useState('muted');
     const [playsinline, setPlaysinline] = useState('playsinline');
