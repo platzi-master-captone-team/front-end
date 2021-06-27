@@ -7,6 +7,7 @@ export const FormContainer = styled.form`
 
 export const InputContainer = styled.div`
     width: 300px;
+    display: ${props => props.$show === props.id ? 'inline' : 'none'};
     
 `
 export const CheckboxContainer = styled.div`

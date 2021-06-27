@@ -4,14 +4,11 @@ import {
   MakePayment,
   Title,
   Description,
-  PaymentMethod,
-  PaymentButton,
-  RadioButton,
-  InputLabel,
   OrderCard,
 } from "./Payment.styles";
 
 import OrderTable from '../../components/OrderTable/OrderTable';
+import FormPayment from '../../components/FormPayment/FormPayment';
 
 const Payment = () => {
   return (
@@ -30,17 +27,7 @@ const Payment = () => {
         <Description>
           Selecciona tu método de Pago
         </Description>
-        <PaymentMethod>
-          <RadioButton type="radio"></RadioButton>
-          <InputLabel>Paypal</InputLabel>
-        </PaymentMethod>
-        <PaymentMethod>
-          <RadioButton type="radio"></RadioButton>
-          <InputLabel>Tarjeta de Débito o Crédito</InputLabel>
-        </PaymentMethod>
-        <PaymentButton>
-          Procesar Pago
-        </PaymentButton>
+        <FormPayment/>
       </MakePayment>
       <OrderSummary>
         <OrderCard>

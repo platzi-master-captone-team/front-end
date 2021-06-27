@@ -9,7 +9,18 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    @media (max-width: 600px) {
+        justify-content: space-between;   
+        padding: 0.5rem;
+      }
 `
+export const NavBarContainer = styled.div`
+    max-width: 1366px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+` 
 
 export const Logo = styled.img`
     width: 50px;
@@ -34,7 +45,6 @@ export const NavMenu = styled.nav`
     display: flex;
     align-items: center;
     margin-left: auto;
-
 `
 export const NavMenuLink = styled(Link)`
     text-decoration: none;
@@ -44,6 +54,9 @@ export const NavMenuLink = styled(Link)`
     cursor: pointer;
     color: black;
     display: ${props => props.$show ? 'none' : 'inline'};
+    @media (max-width: 600px) {
+     display: none;   
+    }
 `
 export const Button = styled(Link)`
     font-family: Karla;

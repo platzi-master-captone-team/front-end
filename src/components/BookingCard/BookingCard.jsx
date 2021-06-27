@@ -20,7 +20,7 @@ const BookingCard = ( {status} ) => {
                 <BookingDate>Viernes 18 de Junio 2021</BookingDate>
                 <BookingTime>11:00 - 12:00</BookingTime>
                 <JoinChat>
-                    <ChatLink status={status} to='/chat'>Unirse</ChatLink>
+                    <ChatLink status={status} to='/chat/holi'>Unirse</ChatLink>
                     <Finished status={status}>Finalizada</Finished>
                     <Indicator status={status}></Indicator>
                 </JoinChat>
