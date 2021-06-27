@@ -223,9 +223,8 @@ export const RegisterUserForm = () => {
             <Title>Registrarse</Title>
             <TextIndicator>Regístrate con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"row"}>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoGoogle} />Regístrate con Google</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoLinkedIn} />Regístrate con LinkedIn</SocialButton>
-                <SocialButton buttonWidth={"172px"}><SocialButtonImg src={logoTwitter} />Regístrate con Twitter</SocialButton>
+                <SocialButton buttonWidth={"250px"}><SocialButtonImg src={logoGoogle} />Regístrate con Google</SocialButton>
+                <SocialButton buttonWidth={"250px"}><SocialButtonImg src={logoLinkedIn} />Regístrate con LinkedIn</SocialButton>
             </SocialButtons>
             <TextIndicator>O llena el siguiente formulario</TextIndicator>
             <Inputs>
