@@ -36,7 +36,7 @@ const ProfileInfo = () => {
             	description={profile.description}
             	experience={profile.experience}
             	education={profile.education}
-                avatar={profile.avatar}
+                picture={profile.avatar}
             />
             <ExpertProfileAgenda fee={profile.fee} />
         </MainContainer>

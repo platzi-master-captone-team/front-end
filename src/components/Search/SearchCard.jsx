@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card, Avatar, Info, Name, Profession, Description, Division, Button } from './SearchComponentsStyles'
 
-import DEFAULT_AVATAR from '../../assets/images/default-avatar.png'
-
-const SearchResultCard = ( {name, profession, description, avatar = DEFAULT_AVATAR, id } ) => {
+const SearchResultCard = ( {name, profession, description, picture, id } ) => {
+    const DEFAULT_AVATAR = `https://ui-avatars.com/api/?name=${name}`
+    const avatar = picture ? picture : DEFAULT_AVATAR
     return (
         <Card id={id}>
             <Avatar src={avatar} />
