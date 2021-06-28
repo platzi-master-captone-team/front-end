@@ -1,5 +1,5 @@
 // Import script containing WebRTC related functions
-import './webRTC';
+import { videoChatLoad, muteAudio, muteVideo } from './webRTC';
 //Import TURN config
 //import './config.js';
 // Import WebRTC adapter for compatibility with all the browsers
@@ -39,13 +39,21 @@ const VideoChat = () => {
 
     function handleCam (){
         setIsCamEnabled(!isCamEnabled);
-        //muteVideo();
+        muteVideo();
     }
 
     function handleMic (){
         setIsMicEnabled(!isMicEnabled);
-        //muteAudio()
+        muteAudio();
     }
+
+    useEffect(() => {
+        console.log('Chat Component');
+        if (status === 'active') {
+            videoChatLoad();
+        }
+        
+    },[status]);
 
     return(
         <>

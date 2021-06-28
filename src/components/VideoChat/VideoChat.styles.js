@@ -54,6 +54,8 @@ export const Video = styled.video.attrs(props => ({
 `
     border: 1px solid black;
     border-radius: 15px;
+    width: 300px;
+    height: 200px;
     
 `
 
