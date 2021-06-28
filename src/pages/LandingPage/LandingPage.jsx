@@ -35,7 +35,7 @@ function LandingPage () {
           <SocialLink href={'https://www.youtube.com'}><SocialIcon src={youtube}/></SocialLink>
           <SocialLink href={'https://www.facebook.com'}><SocialIcon src={facebook}/></SocialLink>
           <SocialLink href={'https://www.twitter.com'}><SocialIcon src={twitter}/></SocialLink>
-          <SocialLink href={'https://www.linkedin.com'}><SocialIcon src={linkedin}/></SocialLink>
+          <SocialLink href={'https://www.linkedin.com/company/consultify-tech/'}><SocialIcon src={linkedin}/></SocialLink>
           <SocialLink href={'https://www.instagram.com'}><SocialIcon src={instagram}/></SocialLink>
           </SocialBar>
         </Social>

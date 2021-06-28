@@ -1,7 +1,8 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { LoginContext } from '../../utils/loginStatus';
-import cookie from 'js-cookie'
+import cookie from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 import { 
     Header,
     BrandTitle,
@@ -29,22 +30,41 @@ const Navbar = () => {
         setUserMenu(!userMenu);
     }
 
+    function getLoginStatus () {
+        const token = cookie.get('token') 
+        console.log('token authorized:', token)  
+        
+        if(token && login.status === false) {
+            const tokenData = jwt_decode(token);
+            console.log(tokenData);
+            console.log('update login status')
+            setLogin({...login, status:true, role: tokenData.role_id, name:tokenData.name});
+        }
+    }
+
     function CloseSession () {
-        setLogin({...login, status:false});
+        setLogin({...login, status:false, role:'', name:''});
         setUserMenu(false);
         cookie.remove('token')
         history.push("/");
+        console.log('login after close: ' + login.status);
     }
 
     function ChangeToExpert () {
-        setLogin({...login, role:'Expert', name:'Ana Rojas'});
+        setLogin({...login, role:'Experto', name:'Ana Rojas'});
         setUserMenu(false);
     }
 
     function ChangeToClient () {
-        setLogin({...login, role:'Client', name:'José Araiza'});
+        setLogin({...login, role:'Cliente', name:'José Araiza'});
         setUserMenu(false);
     }
+
+    useEffect(() => {
+        console.log('login before: '+ login.status );
+        getLoginStatus();
+        console.log('login after: ' + login.status);
+      });
 
     return (
         <>
@@ -58,7 +78,7 @@ const Navbar = () => {
                     <Button to='/signup' $show={login.status}>Únete Ahora</Button>
                     <NavMenuLink to='/profile/dashboard' $show={!login.status}>Mi Cuenta</NavMenuLink>
                     <UserMenu>
-                        <Avatar onClick={ToggleMenu} src={ login.role === 'Client' ? avatar: avatar2 } $show={!login.status}/>
+                        <Avatar onClick={ToggleMenu} src={ login.role === 'Cliente' ? avatar: avatar2 } $show={!login.status}/>
                         <UserMenuDropdown $show={userMenu}>
                             <UserMenuOption onClick={ChangeToExpert}>Cambiar a Experto</UserMenuOption>
                             <UserMenuOption onClick={ChangeToClient}>Cambiar a Cliente</UserMenuOption>

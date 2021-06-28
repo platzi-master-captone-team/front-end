@@ -59,14 +59,14 @@ export const ChatLink = styled(Link)`
     border-radius: 15px;
     text-decoration: none;
     margin-right: 1rem;
-    display: ${props => props.status === 'finished' ? 'none' : 'inline'};
+    display: ${props => props.status === 'done' ? 'none' : 'inline'};
 `
 export const Finished = styled.div`
     font-weight: 700;
     padding: 0.5rem;
     margin-right: 0.5rem;
     color: grey;
-    display: ${props => props.status !== 'finished' ? 'none' : 'inline'};
+    display: ${props => props.status !== 'done' ? 'none' : 'inline'};
 `
 
 export const Indicator = styled.div`

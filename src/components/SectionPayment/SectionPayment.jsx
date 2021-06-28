@@ -10,16 +10,16 @@ const SectionPayment = () => {
 
     return(
         <>
-            <SectionTitle profile="Client" $show={login.role}>Método de Pago</SectionTitle>
-            <SectionTitle profile="Expert" $show={login.role}>Método de Retiro</SectionTitle>
-            <Text profile="Client" $show={login.role}>Puedes ligar tu cuenta de Paypal para facilitar el proceso de pago.</Text>
-            <Text profile="Expert" $show={login.role}>Puedes ligar tu cuenta de Paypal para facilitar el proceso de retiro.</Text>
+            <SectionTitle profile="Cliente" $show={login.role}>Método de Pago</SectionTitle>
+            <SectionTitle profile="Experto" $show={login.role}>Método de Retiro</SectionTitle>
+            <Text profile="Cliente" $show={login.role}>Puedes ligar tu cuenta de Paypal para facilitar el proceso de pago.</Text>
+            <Text profile="Experto" $show={login.role}>Puedes ligar tu cuenta de Paypal para facilitar el proceso de retiro.</Text>
             <br/>
             <PaypalButton></PaypalButton>
             <br/>
-            <Text profile="Expert" $show={login.role}>O puedes agregar los datos de tu cuenta bancaria.</Text>
+            <Text profile="Experto" $show={login.role}>O puedes agregar los datos de tu cuenta bancaria.</Text>
             <br/>
-            <FormBank profile="Expert" $show={login.role}/>
+            <FormBank profile="Experto" $show={login.role}/>
             
         </>
     )

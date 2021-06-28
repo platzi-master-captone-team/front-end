@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router';
+import { LoginContext } from '../../utils/loginStatus';
 import axios from 'axios';
-import cookie from 'js-cookie'
+import cookie from 'js-cookie';
+import jwt_decode from 'jwt-decode';
 import { 
     FormContainer, 
     Title, TextIndicator, 
@@ -18,6 +20,7 @@ import {
     Option,
     Error
  } from './FormsStyles';
+
 
 import logoGoogle from "../../assets/images/google-logo.svg"  
 import logoLinkedIn from "../../assets/images/linkedin-logo.svg"  
@@ -347,6 +350,7 @@ export const RegisterUserForm = () => {
 export const LoginForm = () => {
 
     let history = useHistory();
+    const { login, setLogin } = useContext(LoginContext);
     
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -377,6 +381,11 @@ export const LoginForm = () => {
                 console.log("Status: ", response.status)
                 console.log("Data: ", response.data)
                 cookie.set("token", response.data.token)
+                const tokenData = jwt_decode(response.data.token);
+                console.log(tokenData);
+                console.log('update login status')
+                const userRole = tokenData.role_id === 1 ? 'Cliente': 'Experto';
+                setLogin({...login, status:true, role: userRole, name:tokenData.name});
                 history.push('/profile/dashboard')
             }).catch(error => {
                 console.log(error)

@@ -23,7 +23,7 @@ const Profile = () => {
         <ProfileMain>
             <Sidebar>
                 <User>
-                    <Avatar src={ login.role === 'Client' ? avatar : avatar2 }/>
+                    <Avatar src={ login.role === 'Cliente' ? avatar : avatar2 }/>
                     <UserInfo>
                         <UserName>{login.name}</UserName>
                         <UserRole>{login.role}</UserRole>

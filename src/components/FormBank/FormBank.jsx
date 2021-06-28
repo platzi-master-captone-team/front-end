@@ -7,7 +7,7 @@ const FormBank = () => {
     const { login } = useContext(LoginContext);
 
     return(
-        <FormContainer profile="Expert" $show={login.role}>
+        <FormContainer profile="Experto" $show={login.role}>
             <InputContainer>
                 <InputLabel>Institución Bancaria</InputLabel>
                 <Input type="text" />
