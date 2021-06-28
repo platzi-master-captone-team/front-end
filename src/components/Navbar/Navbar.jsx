@@ -17,12 +17,11 @@ import {
     Logo 
 } from "./Navbar.styles";
 
-import avatar from '../../assets/images/avatar.png';
-import avatar2 from '../../assets/images/avatar2.png';
-
 const Navbar = () => {
     let history = useHistory();
     const { login, setLogin } = useContext(LoginContext);
+
+    const avatarURL = 'https://ui-avatars.com/api/?name='+login.name+'&rounded=true&background=FFB900&bold=true';
 
     const [userMenu, setUserMenu] = useState(false);
 
@@ -36,7 +35,9 @@ const Navbar = () => {
         
         if(token && login.status === false) {
             const tokenData = jwt_decode(token);
-            const userRole = tokenData.role_id === 1 ? 'Cliente': 'Experto';
+            console.log("tokendata: " + tokenData);
+            const userRole = tokenData.role_id === 1 ? 'Experto': 'Cliente';
+            
             setLogin({...login, status:true, role: userRole, name:tokenData.name});
         }
     }
@@ -46,7 +47,6 @@ const Navbar = () => {
         setUserMenu(false);
         cookie.remove('token')
         history.push("/");
-        console.log('login after close: ' + login.status);
     }
 
     function ChangeToExpert () {
@@ -60,9 +60,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        console.log('login before: '+ login.status );
         getLoginStatus();
-        console.log('login after: ' + login.status);
       });
 
     return (
@@ -77,7 +75,7 @@ const Navbar = () => {
                     <Button to='/signup' $show={login.status}>Únete Ahora</Button>
                     <NavMenuLink to='/profile/dashboard' $show={!login.status}>Mi Cuenta</NavMenuLink>
                     <UserMenu>
-                        <Avatar onClick={ToggleMenu} src={ login.role === 'Cliente' ? avatar: avatar2 } $show={!login.status}/>
+                        <Avatar onClick={ToggleMenu} src={ avatarURL } $show={!login.status}/>
                         <UserMenuDropdown $show={userMenu}>
                             <UserMenuOption onClick={ChangeToExpert}>Cambiar a Experto</UserMenuOption>
                             <UserMenuOption onClick={ChangeToClient}>Cambiar a Cliente</UserMenuOption>

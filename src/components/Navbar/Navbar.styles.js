@@ -74,6 +74,7 @@ export const Avatar = styled.img`
     padding: 0 1rem;
     height: 50px;
     display: ${props => props.$show ? 'none' : 'inline'};
+    border-radius: 50%;
 `
 export const UserMenu = styled.div`
     display: flex;

@@ -12,18 +12,16 @@ import {
     Sidebar
 } from './Profile.styles';
 
-import avatar from '../../assets/images/avatar.png';
-import avatar2 from '../../assets/images/avatar2.png';
-
 const Profile = () => {
 
     const { login } = useContext(LoginContext);
+    const avatarURL = 'https://ui-avatars.com/api/?name='+login.name+'&rounded=true&background=FFB900&bold=true';
 
     return(
         <ProfileMain>
             <Sidebar>
                 <User>
-                    <Avatar src={ login.role === 'Cliente' ? avatar : avatar2 }/>
+                    <Avatar src={ avatarURL }/>
                     <UserInfo>
                         <UserName>{login.name}</UserName>
                         <UserRole>{login.role}</UserRole>
