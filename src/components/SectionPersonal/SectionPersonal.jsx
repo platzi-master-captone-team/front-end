@@ -8,8 +8,8 @@ const SectionPersonal = () => {
         <>
             <SectionTitle>Datos Personales</SectionTitle>
             <FormPersonal />
-            <SectionTitle>Cambiar Contraseña</SectionTitle>
-            <FormPassword />
+{/*             <SectionTitle>Cambiar Contraseña</SectionTitle>
+            <FormPassword /> */}
         </>
     )
 }

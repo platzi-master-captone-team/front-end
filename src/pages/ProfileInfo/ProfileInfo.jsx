@@ -16,6 +16,7 @@ const ProfileInfo = () => {
          const getData = async () => {
              const data = await fetch(`https://consultify.herokuapp.com/api/user/${id}/detail`)
              const profileResponse = await data.json()
+             console.log(profileResponse)
              setProfile(profileResponse)
             }
             

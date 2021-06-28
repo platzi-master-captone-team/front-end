@@ -14,8 +14,8 @@ const SectionDashboard = () => {
 
     return(
         <>
-            <SectionTitle profile="Expert" $show={login.role}>Actividad Reciente</SectionTitle>
-            <ProfileChart profile="Expert" show={login.role}/>
+            <SectionTitle profile="Experto" $show={login.role}>Actividad Reciente</SectionTitle>
+            <ProfileChart profile="Experto" show={login.role}/>
             <SectionTitle>Próximas Citas</SectionTitle>
             <BookingList />
         </>

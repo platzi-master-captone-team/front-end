@@ -37,7 +37,7 @@ const data = [
 const ProfileChart = ({show}) => {
 
     return (
-      <ChartPanel profile="Expert" $show={show}>
+      <ChartPanel profile="Experto" $show={show}>
       <ResponsiveContainer width={500} aspect={2.5} >
         <BarChart
           width={500}
