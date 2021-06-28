@@ -36,9 +36,8 @@ const Navbar = () => {
         
         if(token && login.status === false) {
             const tokenData = jwt_decode(token);
-            console.log(tokenData);
-            console.log('update login status')
-            setLogin({...login, status:true, role: tokenData.role_id, name:tokenData.name});
+            const userRole = tokenData.role_id === 1 ? 'Cliente': 'Experto';
+            setLogin({...login, status:true, role: userRole, name:tokenData.name});
         }
     }
 
