@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router'
+import React from 'react'
 import { 
     ProfileSection, 
     ProfileCard, 
@@ -20,7 +19,6 @@ import {
     EducationTitle, 
     EducationInfo   } from './ExpertProfileInfoStyles'
 
-import DEFAULT_AVATAR from '../../assets/images/default-avatar.png'
 
 const ExpertProfileInfo = ({
     name, 
@@ -33,9 +31,10 @@ const ExpertProfileInfo = ({
     description, 
     experience,
     education,
+    picture }) => {
 
-    avatar = DEFAULT_AVATAR}) => {
-
+    const avatarDefault = `https://ui-avatars.com/api/?name=${name}`
+    const avatar = picture ? picture : avatarDefault
     
     return (
         <ProfileSection>

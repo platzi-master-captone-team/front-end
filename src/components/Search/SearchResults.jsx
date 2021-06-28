@@ -25,7 +25,7 @@ const SearchResults = () => {
     const displayExperts = experts
         .slice(pageVisited, pageVisited + expertsPerPage)
         .map((expert) => 
-            <SearchCard key={expert.id} id={expert.id} name={expert.name} profession={expert.profession} description={expert.description.slice(0, 150)} avatar={expert.avatar} />  
+            <SearchCard key={expert.id} id={expert.id} name={expert.name} profession={expert.profession} description={expert.description.slice(0, 150)} picture={expert.avatar} />  
         )
 
     const pageCount = Math.ceil(experts.length / expertsPerPage)
