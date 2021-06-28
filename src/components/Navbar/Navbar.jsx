@@ -35,8 +35,8 @@ const Navbar = () => {
         
         if(token && login.status === false) {
             const tokenData = jwt_decode(token);
-            console.log("tokendata: "+tokenData);
-            const userRole = tokenData.role_id === 1 ? 'Cliente': 'Experto';
+            console.log("tokendata: " + tokenData);
+            const userRole = tokenData.role_id === 1 ? 'Experto': 'Cliente';
             
             setLogin({...login, status:true, role: userRole, name:tokenData.name});
         }
@@ -47,7 +47,6 @@ const Navbar = () => {
         setUserMenu(false);
         cookie.remove('token')
         history.push("/");
-        console.log('login after close: ' + login.status);
     }
 
     function ChangeToExpert () {
@@ -61,9 +60,7 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        console.log('login before: '+ login.status );
         getLoginStatus();
-        console.log('login after: ' + login.status);
       });
 
     return (

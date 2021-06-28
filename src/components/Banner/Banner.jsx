@@ -21,7 +21,7 @@ const Banner = () => {
     return(
         <BannerContainer $show={banner.show} >
             <BannerMessage>{banner.message} 
-                <BannerLink id="chat" to="/chat" type={banner.type}>Únete Ahora</BannerLink>
+                <BannerLink id="chat" to="/chat/holi" type={banner.type}>Únete Ahora</BannerLink>
                 <BannerLink id="profile" to="/profile/dashboard" type={banner.type}>Ir al Perfil</BannerLink>
             </BannerMessage>
             <CloseBanner onClick={closeBanner}>X</CloseBanner>
