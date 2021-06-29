@@ -9,6 +9,7 @@ export const Section = styled.section`
     width: 100%;
 `
 export const SectionTitle = styled(TitleBold)`
-    padding: 3rem;
+    padding: 2.5rem;
     display: ${props => props.$show === props.profile ? 'inline' : 'none'};
+    text-align: center;
 `

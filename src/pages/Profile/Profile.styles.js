@@ -10,8 +10,11 @@ export const ProfileMain = styled.main`
     padding: 1rem;
     justify-items: center;
     align-items: center;
-    margin: auto;
-    width: 90%;
+    margin: 0.5rem;
+    @media (max-width: 760px) {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
 `
 
 export const Sidebar = styled.section`
@@ -51,3 +54,40 @@ export const Avatar = styled.img`
 Avatar.defaultProps = {
     src: avatar
 };
+
+export const MenuSelect = styled.select`
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    border: 1px solid black;
+    background: lightgrey;
+    padding: 0.2rem;
+    font-size: var(--font-small);
+    font-weight: 800;
+    outline: none;
+    color: black;
+    text-align-last:center;
+    
+
+    &:focus {
+        border: 2px solid black;
+    }
+
+    @media (min-width: 760px) {
+        display: none;
+    }
+
+`
+export const MenuOption = styled.option`
+    border-radius: 1rem;
+    text-align: center;
+    font-size: var(--font-small);
+    font-family: var(--font-primary);
+    font-weight: 800;
+    text-align-last:center;
+
+    &:hover {
+        box-shadow: 0 0 10px 100px #FED20F inset;
+        transition: all .2s ease-in-out;
+    }
+`
