@@ -5,7 +5,7 @@ export const MainContent = styled.div`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 90%;
     height: auto;
     margin: 3.5rem auto;
     max-width: 1366px; 
@@ -15,11 +15,15 @@ export const MainContent = styled.div`
     
 `
 export const ImgWrapper = styled.div`
-    @media (max-width: 1024px) {
+    width: 500px;
+    @media (min-width: 1025px) {
+        width: 30%;
+    }
+    @media (max-width: 1092px) {
         display: none;
     }
 `
 
 export const RegisterImage = styled.img`
-    width: 380px;
+    width: 100%;
 `

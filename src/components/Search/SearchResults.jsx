@@ -28,7 +28,6 @@ const SearchResults = () => {
                 scala: 'scala',
             }
             const sortProperty = types[type]
-            console.log(sortProperty)
             const sorted = [...JsonData].sort((a, b) => {
                 switch(sortProperty) {
                     case 'frontend':
