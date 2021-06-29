@@ -84,6 +84,19 @@ export const Card = styled.div`
         flex-grow: 1;
     }    
 `
+
+export const Header = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`
+
+export const Fee = styled.div`
+    font-weight: bold;
+    font-size: var(--font-large);
+`
+
 export const Avatar = styled.img`
     width: 4rem;
     height: 4rem;
