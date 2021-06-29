@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 
-export const FormContainer = styled.form`
+export const MainContainer = styled.div `
     display: Flex;
     flex-direction: column;
-    width: ${props => props.formWidth};
-    padding: ${props => props.formPadding};
+    width: ${props => props.Width};
+    padding: ${props => props.Padding};
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
@@ -13,6 +13,9 @@ export const FormContainer = styled.form`
         width: 90%;
         flex-grow: 1;
     }
+`
+
+export const FormContainer = styled.form`
 
 `
 export const Title = styled.h2`
