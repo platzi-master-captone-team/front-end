@@ -11,17 +11,17 @@ import { Link } from 'react-router-dom';
 const Card = ({ height }) => css`
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 100%;
+    max-width: 500px;
     height: ${height || "auto"}; 
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     padding: 3rem 3rem;
     margin: 0 auto 2rem auto;
-    @media (max-width: 768px) {
-        flex-grow: 1;
-        width: 90%;
-        padding: 3rem 4rem;
+
+    @media (max-width: 900px) {
+
     }
 `
 const Title =  css`
@@ -47,7 +47,7 @@ export const ProfileSection = styled.div`
     width: 50%;
     display: flex;
     flex-direction: column;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         width: 100%;
     }    
 `
@@ -118,12 +118,13 @@ export const SocialButton = styled.a `
     justify-content: space-around;
     background: black;
     color: white;
-    width: 100px;
+    width: 125px;
     text-align: center;
     font-size: 0.7rem;
     padding: 0.4rem 1rem;
     border-radius: 6px;
     cursor: pointer;
+    text-decoration: none;
     &::before {
         content: "";
         display: block;
@@ -142,6 +143,9 @@ export const SocialButton = styled.a `
             height: 18px;
             margin-right: 15px;
         }   
+    }
+    @media (max-width: 1024px) {
+        width: 125px;
     }
     @media (max-width: 768px) {
         justify-content: center;
@@ -218,7 +222,7 @@ export const EducationInfo = styled.p`
 // Profile Agenda
 export const AgendaSection = styled.div`
     width: 50%;
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
         width: 100%;
     }    
 `
@@ -262,20 +266,23 @@ export const ScheduleSelection = styled.a`
     background: ${(props) => 
         (props.active === true) ? "var(--color-primary)" : "var(--color-lightgrey)"
     };
-    padding: 0.5rem;
+    padding: 1rem 0.5rem;
     width: 100px;
-    height: 2rem;
     border-radius: 8px;
     font-weight: bold;
     font-size: var(--font-small);
     color: inherit;
     text-decoration: none;
     text-align: center;
-    margin: 0.5rem 0.25rem 0;
+    margin: 0.8rem 0.25rem 0;
     cursor: pointer;
+    @media (max-width: 900px) {
+        width: 100%;
+        padding: 1.5rem 0.5rem;
+    }
 `
 
-export const ScheduleButton = styled(Link)`
+export const ScheduleButton = styled.button`
     width: 100%;
     font-family: var(--font-primary);
     font-size: var(--font-medium);
@@ -285,7 +292,7 @@ export const ScheduleButton = styled(Link)`
     border-radius: 8px;
     cursor: pointer;
     text-align: center;
-    margin: 2rem auto;   
+    margin: 3rem auto 2rem auto;   
     @media (max-width: 768px) {
         font-size: var(--font-large);
     }         

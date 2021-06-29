@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { openPopupWidget } from 'react-calendly'
+import Calendar from './Calendar'
 import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton } from './ExpertProfileInfoStyles'
 
 const ExpertProfileAgenda = ({fee}) => {
@@ -22,7 +23,17 @@ const ExpertProfileAgenda = ({fee}) => {
                 <AgendaTitle>Agenda una Consulta</AgendaTitle>
                 <PriceTag>$/Hora <Span>${fee}</Span></PriceTag>
                 <Division />
-                <ScheduleButton onClick={onClick}>Agendar Consulta</ScheduleButton>
+                <Calendar />
+                <TimeTitle>Horarios Disponibles</TimeTitle>
+                <Division />
+                <Schedule>
+                    <ScheduleSelection>10:00 a.m</ScheduleSelection>
+                    <ScheduleSelection>11:00 a.m</ScheduleSelection>
+                    <ScheduleSelection>12:00 p.m</ScheduleSelection>
+                    <ScheduleSelection>2:00 p.m</ScheduleSelection>
+                    <ScheduleSelection>3:00 p.m</ScheduleSelection>
+                </Schedule>
+                <ScheduleButton>Agendar Consulta</ScheduleButton>
             </AgendaCard>
         </AgendaSection>
     )
