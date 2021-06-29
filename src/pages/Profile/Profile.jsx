@@ -48,7 +48,14 @@ const Profile = () => {
                     </UserInfo>
                 </User>
                 <SectionMenu />
-                <MenuSelect id="menu-select" value={menuSelect} onChange={changeSection}>    
+                <MenuSelect id="menu-cliente" profile="Cliente" $show={login.role} value={menuSelect} onChange={changeSection}>    
+                    <MenuOption value="dashboard">Dashboard</MenuOption>
+                    <MenuOption value="history">Historial de Citas</MenuOption>
+                    <MenuOption value="payment">Configuración de Módulo de Pago</MenuOption>
+                    <MenuOption value="personal">Configuración Personal</MenuOption>
+                    <MenuOption value="terms">Terminos y Condiciones</MenuOption>
+                </MenuSelect>
+                <MenuSelect id="menu-experto" profile="Experto" $show={login.role} value={menuSelect} onChange={changeSection}>    
                     <MenuOption value="dashboard">Dashboard</MenuOption>
                     <MenuOption value="history">Historial de Citas</MenuOption>
                     <MenuOption value="availability">Configuración de Disponibilidad</MenuOption>

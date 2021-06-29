@@ -67,7 +67,7 @@ export const MenuSelect = styled.select`
     outline: none;
     color: black;
     text-align-last:center;
-    
+    display: ${props => props.$show === props.profile ? 'inline' : 'none'};
 
     &:focus {
         border: 2px solid black;
@@ -85,6 +85,7 @@ export const MenuOption = styled.option`
     font-family: var(--font-primary);
     font-weight: 800;
     text-align-last:center;
+    
 
     &:hover {
         box-shadow: 0 0 10px 100px #FED20F inset;
