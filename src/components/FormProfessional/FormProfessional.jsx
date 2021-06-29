@@ -4,7 +4,7 @@ const FormProfessional = () => {
     return(
         <FormContainer>
             <InputContainer>
-                <InputLabel>Área de Experiencia</InputLabel>
+                <InputLabel position="center">Área de Experiencia</InputLabel>
                 <CheckboxContainer>
                     <Checkbox type='checkbox' value="Frontend"/> 
                     <CheckboxLabel>Frontend</CheckboxLabel>
@@ -19,9 +19,9 @@ const FormProfessional = () => {
                 </CheckboxContainer>
             </InputContainer>
             <InputContainer>
-                <InputLabel>Tecnologías que domina</InputLabel>
+                <InputLabel position="center">Tecnologías que domina</InputLabel>
                 <CheckboxContainer direction="column">
-                    <InputLabel>Frontend</InputLabel><br/>
+                    <InputLabel position="center">Frontend</InputLabel><br/>
                     <CheckboxContainer>
                         <Checkbox type='checkbox' value="React"/> 
                         <CheckboxLabel>React</CheckboxLabel>
@@ -32,20 +32,28 @@ const FormProfessional = () => {
                     </CheckboxContainer>
                 </CheckboxContainer>
                 <CheckboxContainer direction="column">
-                    <InputLabel>Backend</InputLabel><br/>
+                    <InputLabel position="center">Backend</InputLabel><br/>
                     <CheckboxContainer>
-                        <Checkbox type='checkbox' value="Node"/> 
-                        <CheckboxLabel>Node</CheckboxLabel>
-                        <Checkbox type='checkbox' value="PHP"/> 
-                        <CheckboxLabel>PHP</CheckboxLabel>
-                        <Checkbox type='checkbox' value="Django"/> 
-                        <CheckboxLabel>Django</CheckboxLabel>
-                        <Checkbox type='checkbox' value="Rails"/> 
-                        <CheckboxLabel>Rails</CheckboxLabel>
+                        <CheckboxContainer>
+                            <Checkbox type='checkbox' value="Node"/> 
+                            <CheckboxLabel>Node</CheckboxLabel>
+                        </CheckboxContainer>
+                        <CheckboxContainer>
+                            <Checkbox type='checkbox' value="PHP"/> 
+                            <CheckboxLabel>PHP</CheckboxLabel>
+                        </CheckboxContainer>
+                        <CheckboxContainer>
+                            <Checkbox type='checkbox' value="Django"/> 
+                            <CheckboxLabel>Django</CheckboxLabel>
+                        </CheckboxContainer>
+                        <CheckboxContainer>
+                            <Checkbox type='checkbox' value="Rails"/> 
+                            <CheckboxLabel>Rails</CheckboxLabel>
+                        </CheckboxContainer>
                     </CheckboxContainer>
                 </CheckboxContainer>
                 <CheckboxContainer direction="column">
-                    <InputLabel>Data Science</InputLabel><br/>
+                    <InputLabel position="center">Data Science</InputLabel><br/>
                     <CheckboxContainer>
                         <Checkbox type='checkbox' value="Python"/> 
                         <CheckboxLabel>Python</CheckboxLabel>

@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const Menu = styled.nav`
-    align-self: flex-start;
     display: flex;
+    align-items: center;
     flex-direction: column;
     text-align: center;
+    @media (max-width: 760px) {
+        display: none;
+    }
 `
 export const MenuItem = styled(Link)`
     text-decoration: none;
@@ -18,3 +21,4 @@ export const MenuItem = styled(Link)`
     cursor: pointer;
     display: ${props => props.$show === props.profile ? 'inline' : 'none'};
 `
+
