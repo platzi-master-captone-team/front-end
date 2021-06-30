@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
+import slotsJSON from './mockSlots.json';
 
 const Frame = styled.div`
   width: auto;
@@ -54,17 +55,25 @@ function Calendar() {
   const MONTHS = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
 
   const today = new Date();
+  const [slots, setSlots] = useState(slotsJSON);
   const [date, setDate] = useState(today);
   const [day, setDay] = useState(date.getDate());
   const [month, setMonth] = useState(date.getMonth());
   const [year, setYear] = useState(date.getFullYear());
   const [startDay, setStartDay] = useState(getStartDayOfMonth(date));
 
-  useEffect(() => {
+  console.log('day clicked: '+ date);
+  
+    useEffect(() => {
     setDay(date.getDate());
     setMonth(date.getMonth());
     setYear(date.getFullYear());
     setStartDay(getStartDayOfMonth(date));
+
+    const dates = slots.values()
+    console.log('Slots dates: '+ dates)
+    
+
   }, [date]);
 
   function getStartDayOfMonth(date= Date) {

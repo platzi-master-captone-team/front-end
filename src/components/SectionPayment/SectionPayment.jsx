@@ -7,6 +7,7 @@ import FormBank from "../FormBank/FormBank";
 const SectionPayment = () => {
 
     const { login } = useContext(LoginContext);
+    
 
     return(
         <>

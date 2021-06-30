@@ -262,16 +262,14 @@ export const Schedule = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
 `
-export const ScheduleSelection = styled.a`
-    background: ${(props) => 
-        (props.active === true) ? "var(--color-primary)" : "var(--color-lightgrey)"
-    };
+export const ScheduleSelection = styled.div`
+    background: ${props => props.selected == props.name ? 'black' : 'var(--color-lightgrey)'};
+    color: ${props => props.selected == props.name ? 'white' : 'black'};   
     padding: 1rem 0.5rem;
     width: 100px;
     border-radius: 8px;
     font-weight: bold;
-    font-size: var(--font-small);
-    color: inherit;
+    font-size: var(--font-medium);
     text-decoration: none;
     text-align: center;
     margin: 0.8rem 0.25rem 0;
@@ -287,14 +285,41 @@ export const ScheduleButton = styled.button`
     font-family: var(--font-primary);
     font-size: var(--font-medium);
     font-weight: bold;
-    background: var(--color-primary);
+    background: ${props => props.selected == props.name ? 'var(--color-primary)' : 'var(--color-lightgrey)'};
     padding: 0.8rem 1rem;
     border-radius: 8px;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
     text-align: center;
-    margin: 3rem auto 2rem auto;   
+    margin: 3rem auto 2rem auto;
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      } 
     @media (max-width: 768px) {
         font-size: var(--font-large);
     }         
 `
+export const Date = styled.div`
+    width: 100%;
+    font-family: var(--font-primary);
+    font-size: var(--font-medium);
+    font-weight: bold;
+    background: ${props => props.selected == props.name ? 'black' : 'var(--color-lightgrey)'};
+    color: ${props => props.selected == props.name ? 'white' : 'black'};
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    margin: 1rem auto; 
+    @media (max-width: 768px) {
+        font-size: var(--font-large);
+    }         
+`
+
+export const ScheduleDate = styled.button`
+      
+`
+
 

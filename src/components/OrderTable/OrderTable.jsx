@@ -1,6 +1,6 @@
 import { StyledTable, TBody, TH, TR, TD } from './OrderTable.styles';
 
-const OrderTable = (  ) => {
+const OrderTable = ( {fee} ) => {
     return (
         <StyledTable>
             <TBody>
@@ -13,14 +13,14 @@ const OrderTable = (  ) => {
                 <TR>
                     <TD>Consultoría</TD>
                     <TD>1</TD>
-                    <TD>$25.00</TD>
-                    <TD>$25.00</TD>
+                    <TD>${fee}.00</TD>
+                    <TD>${fee}.00</TD>
                 </TR>
                 <TR>
                     <TD></TD>
                     <TD></TD>
                     <TD><strong>TOTAL</strong></TD>
-                    <TD>$25.00</TD>
+                    <TD>${fee}.00</TD>
                 </TR>
             </TBody>
         </StyledTable>

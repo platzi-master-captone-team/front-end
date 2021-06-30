@@ -39,7 +39,7 @@ const ProfileInfo = () => {
                 country={profile.country}
                 city={profile.city}
             />
-            <ExpertProfileAgenda fee={profile.fee} />
+            <ExpertProfileAgenda fee={profile.fee} name={profile.name} id={profile.id} />
         </MainContainer>
     )
 }
