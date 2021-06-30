@@ -3,17 +3,18 @@ import { openPopupWidget } from 'react-calendly'
 import Calendar from './Calendar'
 import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton, ScheduleDate, Date } from './ExpertProfileInfoStyles'
 import slotsJSON from './mockSlots.json';
+import { useHistory } from 'react-router';
 
-const ExpertProfileAgenda = ({fee, name}) => {
+const ExpertProfileAgenda = ({fee, name, id}) => {
+
+    const history = useHistory();
 
     const [slots, setSlots] = useState(slotsJSON);
     const [dates, setDates] = useState([]);
     const [times, setTimes] = useState([]);
     const [selectedDate, setSelectedDate] = useState('');
     const [selectedTime, setSelectedTime] = useState();
-
-    let orderDate = '';
-    let orderTime = '';
+    const [isReady, setIsReady] = useState(true);
 
     useEffect(() => {
         const dates2 = Array.from(slots.map( item => { return item.date }));
@@ -30,13 +31,19 @@ const ExpertProfileAgenda = ({fee, name}) => {
         });
         setTimes(showTimes);
         setSelectedDate(id);
-        orderDate = id;
+
     }
 
     function handleTimeClick (ev) {
         const id = ev.target.id;
         setSelectedTime(id);
-        orderTime = id;
+        setIsReady(false);
+
+    }
+
+    function handleSchedule () {
+        const toURL= '/pago?fee='+fee+'&date='+selectedDate+'&time='+selectedTime+'&name='+name+'&id='+id;
+        history.push(toURL);
     }
 
     return (
@@ -51,6 +58,7 @@ const ExpertProfileAgenda = ({fee, name}) => {
                 {dates
                     .map((date) => 
                     <Date key={date} id={date} name={date} selected={selectedDate} onClick={handleDateClick} >{date}</Date>   
+                    
                 )}
                 </ScheduleDate>
                 
@@ -64,7 +72,7 @@ const ExpertProfileAgenda = ({fee, name}) => {
                     </ScheduleSelection>   
                 )}
                 </Schedule>
-                <ScheduleButton to={'/pago?fee='+fee+'&date='+orderDate+'&time='+orderTime}>Agendar Consulta</ScheduleButton>
+                <ScheduleButton disabled={isReady} onClick={handleSchedule}>Agendar Consulta</ScheduleButton>
             </AgendaCard>
         </AgendaSection>
     )
