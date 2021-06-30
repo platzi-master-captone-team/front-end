@@ -24,14 +24,15 @@ const ExpertProfileInfo = ({
     name, 
     profession, 
     technologies,
-    location, 
     github,
     linkedin,
     resume,
     description, 
     experience,
     education,
-    picture }) => {
+    picture, 
+    country, 
+    city }) => {
 
     const avatarDefault = `https://ui-avatars.com/api/?name=${name}`
     const avatar = picture ? picture : avatarDefault
@@ -42,7 +43,7 @@ const ExpertProfileInfo = ({
                 <Avatar src={avatar} />
                 <Name>{name}</Name>
                 <Expertise>{profession}</Expertise>
-                <Location>{location}</Location>
+                <Location>{city}, {country}</Location>
                 <Social>
                     <SocialButton value={"github"} href={github} target="_blank">Github</SocialButton>
                     <SocialButton value={"linkedin"} href={linkedin} target="_blank">LinkedIn</SocialButton>
