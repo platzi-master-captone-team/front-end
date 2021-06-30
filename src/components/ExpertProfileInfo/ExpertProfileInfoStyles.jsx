@@ -280,7 +280,7 @@ export const ScheduleSelection = styled.div`
     }
 `
 
-export const ScheduleButton = styled(Link)`
+export const ScheduleButton = styled.button`
     width: 100%;
     font-family: var(--font-primary);
     font-size: var(--font-medium);
@@ -292,7 +292,11 @@ export const ScheduleButton = styled(Link)`
     text-decoration: none;
     color: black;
     text-align: center;
-    margin: 3rem auto 2rem auto; 
+    margin: 3rem auto 2rem auto;
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      } 
     @media (max-width: 768px) {
         font-size: var(--font-large);
     }         

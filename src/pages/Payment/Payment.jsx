@@ -7,16 +7,36 @@ import {
   OrderCard,
 } from "./Payment.styles";
 
+import{useEffect, useState} from 'react';
 import OrderTable from '../../components/OrderTable/OrderTable';
 import FormPayment from '../../components/FormPayment/FormPayment';
 
 const Payment = () => {
+
+  const [fee, setFee] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [name, setName] = useState('');
+  const [id, setId] = useState('');
+
+  useEffect(()=>{
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    setFee(urlParams.get('fee'))
+    setDate(urlParams.get('date'))
+    setTime(urlParams.get('time'))
+    setName(urlParams.get('name'))
+    setId(urlParams.get('id'))
+  })
+
   return (
     <PaymentContainer>
       <MakePayment>
-        <Title>$25.00</Title>
+        <Title>${fee}.00</Title>
         <Description>
-          Consulta de 1 hora con Ana Rojas
+          Consulta de 1 hora con {name} <br />
+          <b>Fecha:</b> {date} <br />
+          <b>Hora Inicio:</b> {time}:00
         </Description>
         <Title>Descripción de Servicio</Title>
         <Description>
@@ -32,7 +52,7 @@ const Payment = () => {
       <OrderSummary>
         <OrderCard>
           <Title>Resumen de Orden</Title>
-            <OrderTable />
+            <OrderTable fee={fee} />
         </OrderCard>
       </OrderSummary>
       
