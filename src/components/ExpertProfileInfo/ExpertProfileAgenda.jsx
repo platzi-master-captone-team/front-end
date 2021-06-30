@@ -1,39 +1,70 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { openPopupWidget } from 'react-calendly'
 import Calendar from './Calendar'
-import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton } from './ExpertProfileInfoStyles'
+import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton, ScheduleDate, Date } from './ExpertProfileInfoStyles'
+import slotsJSON from './mockSlots.json';
 
-const ExpertProfileAgenda = ({fee}) => {
+const ExpertProfileAgenda = ({fee, name}) => {
 
-    const onClick = () => openPopupWidget({ 
-            url: "https://calendly.com/davidgaleano",
-            pageSettings: {
-                backgroundColor: "fffff",
-                hideEventTypeDetails: false,
-                hideLandingPageDetails: false,
-                primaryColor: "00a2ff",
-                textColor: "4d5055"
+    const [slots, setSlots] = useState(slotsJSON);
+    const [dates, setDates] = useState([]);
+    const [times, setTimes] = useState([]);
+    const [selectedDate, setSelectedDate] = useState('');
+    const [selectedTime, setSelectedTime] = useState();
 
-            }
-    });
+    let orderDate = '';
+    let orderTime = '';
+
+    useEffect(() => {
+        const dates2 = Array.from(slots.map( item => { return item.date }));
+        setDates(dates2);
+      }, []);
+    
+    function handleDateClick (ev) {
+        const id = ev.target.id;
+        const showTimes = [];
+        slots.map( item => {
+            if(item.date === id) {
+                item.slots.forEach(slot => showTimes.push(slot))
+            }    
+        });
+        setTimes(showTimes);
+        setSelectedDate(id);
+        orderDate = id;
+    }
+
+    function handleTimeClick (ev) {
+        const id = ev.target.id;
+        setSelectedTime(id);
+        orderTime = id;
+    }
 
     return (
         <AgendaSection>
+            
             <AgendaCard>
                 <AgendaTitle>Agenda una Consulta</AgendaTitle>
                 <PriceTag>$/Hora <Span>${fee}</Span></PriceTag>
                 <Division />
-                <Calendar />
+                <AgendaTitle>Selecciona una Fecha Disponible</AgendaTitle>
+                <ScheduleDate>
+                {dates
+                    .map((date) => 
+                    <Date key={date} id={date} name={date} selected={selectedDate} onClick={handleDateClick} >{date}</Date>   
+                )}
+                </ScheduleDate>
+                
                 <TimeTitle>Horarios Disponibles</TimeTitle>
                 <Division />
                 <Schedule>
-                    <ScheduleSelection>10:00 a.m</ScheduleSelection>
-                    <ScheduleSelection>11:00 a.m</ScheduleSelection>
-                    <ScheduleSelection>12:00 p.m</ScheduleSelection>
-                    <ScheduleSelection>2:00 p.m</ScheduleSelection>
-                    <ScheduleSelection>3:00 p.m</ScheduleSelection>
+                {times
+                    .map((time) => 
+                    <ScheduleSelection 
+                        key={time} id={time} name={time} selected={selectedTime} onClick={handleTimeClick}>{time}:00
+                    </ScheduleSelection>   
+                )}
                 </Schedule>
-                <ScheduleButton>Agendar Consulta</ScheduleButton>
+                <ScheduleButton to={'/pago?fee='+fee+'&date='+orderDate+'&time='+orderTime}>Agendar Consulta</ScheduleButton>
             </AgendaCard>
         </AgendaSection>
     )
