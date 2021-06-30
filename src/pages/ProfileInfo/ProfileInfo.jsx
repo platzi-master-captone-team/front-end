@@ -28,7 +28,6 @@ const ProfileInfo = () => {
             <ExpertProfileInfo 
             	name={profile.name}
             	profession={profile.profession}
-            	location={profile.location}
             	technologies={profile.technologies}
             	github={profile.github}
             	linkedin={profile.linkedin}
@@ -37,6 +36,8 @@ const ProfileInfo = () => {
             	experience={profile.experience}
             	education={profile.education}
                 picture={profile.avatar}
+                country={profile.country}
+                city={profile.city}
             />
             <ExpertProfileAgenda fee={profile.fee} />
         </MainContainer>

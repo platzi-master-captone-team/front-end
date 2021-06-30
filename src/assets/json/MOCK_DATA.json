@@ -1,5 +1,7 @@
 [{
   "id": 1,
+  "country": "Japan",
+  "city": "Yono",
   "name": "Paxon Treverton",
   "profession": "Analyst Programmer",
   "mastery": "frontend",
@@ -15,6 +17,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 2,
+  "country": "United States",
+  "city": "Phoenix",
   "name": "Dorri Sealy",
   "profession": "Accountant III",
   "mastery": "frontend",
@@ -30,6 +34,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 3,
+  "country": "Spain",
+  "city": "Valencia",
   "name": "Natalina Morrowe",
   "profession": "Biostatistician III",
   "mastery": "frontend",
@@ -45,6 +51,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 4,
+  "country": "China",
+  "city": "Jiguan",
   "name": "Wynne Danelutti",
   "profession": "Help Desk Technician",
   "mastery": "frontend",
@@ -60,6 +68,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 5,
+  "country": "Thailand",
+  "city": "Kae Dam",
   "name": "Maryjane Poxson",
   "profession": "Senior Quality Engineer",
   "mastery": "frontend",
@@ -75,6 +85,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 6,
+  "country": "Russia",
+  "city": "Overyata",
   "name": "Elton Alven",
   "profession": "Teacher",
   "mastery": "frontend",
@@ -90,6 +102,8 @@
   "avatar": ""
 }, {
   "id": 7,
+  "country": "Sweden",
+  "city": "Vänersborg",
   "name": "Liv Pilmoor",
   "profession": "Environmental Tech",
   "mastery": "frontend",
@@ -105,6 +119,8 @@
   "avatar": ""
 }, {
   "id": 8,
+  "country": "Russia",
+  "city": "Shilovo",
   "name": "Jocelin Ripping",
   "profession": "Executive Secretary",
   "mastery": "frontend",
@@ -120,6 +136,8 @@
   "avatar": ""
 }, {
   "id": 9,
+  "country": "Canada",
+  "city": "Anmore",
   "name": "Antonino Peter",
   "profession": "Research Nurse",
   "mastery": "frontend",
@@ -135,6 +153,8 @@
   "avatar": ""
 }, {
   "id": 10,
+  "country": "Colombia",
+  "city": "El Zulia",
   "name": "Akim Dimitru",
   "profession": "Teacher",
   "mastery": "frontend",
@@ -150,6 +170,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 11,
+  "country": "Germany",
+  "city": "Remscheid",
   "name": "Tamera Quinby",
   "profession": "Developer I",
   "mastery": "frontend",
@@ -165,6 +187,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 12,
+  "country": "Portugal",
+  "city": "Mundão",
   "name": "Odessa Arstingall",
   "profession": "Senior Quality Engineer",
   "mastery": "frontend",
@@ -180,6 +204,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 13,
+  "country": "Burundi",
+  "city": "Ngozi",
   "name": "Binny Heigl",
   "profession": "Marketing Manager",
   "mastery": "backend",
@@ -195,6 +221,8 @@
   "avatar": ""
 }, {
   "id": 14,
+  "country": "Democratic Republic of the Congo",
+  "city": "Gemena",
   "name": "Mead Claypoole",
   "profession": "VP Quality Control",
   "mastery": "backend",
@@ -210,6 +238,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 15,
+  "country": "China",
+  "city": "Tingping",
   "name": "Massimo Eblein",
   "profession": "Software Test Engineer IV",
   "mastery": "backend",
@@ -225,6 +255,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 16,
+  "country": "Russia",
+  "city": "Nevinnomyssk",
   "name": "Dionysus Tanman",
   "profession": "Help Desk Technician",
   "mastery": "backend",
@@ -240,6 +272,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 17,
+  "country": "Peru",
+  "city": "Huasahuasi",
   "name": "Karee Dran",
   "profession": "Developer II",
   "mastery": "backend",
@@ -255,6 +289,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 18,
+  "country": "China",
+  "city": "Dangjiaxian",
   "name": "Heloise McKew",
   "profession": "Help Desk Technician",
   "mastery": "backend",
@@ -270,6 +306,8 @@
   "avatar": ""
 }, {
   "id": 19,
+  "country": "Russia",
+  "city": "Rettikhovka",
   "name": "Lezlie Pointon",
   "profession": "Assistant Media Planner",
   "mastery": "backend",
@@ -285,6 +323,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 20,
+  "country": "France",
+  "city": "Orléans",
   "name": "Oliy Blancowe",
   "profession": "Pharmacist",
   "mastery": "backend",
@@ -300,6 +340,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 21,
+  "country": "Sweden",
+  "city": "Motala",
   "name": "Kennan Byforth",
   "profession": "Help Desk Technician",
   "mastery": "backend",
@@ -315,6 +357,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 22,
+  "country": "China",
+  "city": "Jinji",
   "name": "Corey Olifaunt",
   "profession": "Clinical Specialist",
   "mastery": "backend",
@@ -330,6 +374,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 23,
+  "country": "Tuvalu",
+  "city": "Fakaifou Village",
   "name": "Anette Frears",
   "profession": "Financial Advisor",
   "mastery": "data",
@@ -345,6 +391,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 24,
+  "country": "Philippines",
+  "city": "Balogo",
   "name": "Bertram Gritsaev",
   "profession": "Librarian",
   "mastery": "data",
@@ -360,6 +408,8 @@
   "avatar": "https://i.pravatar.cc/"
 }, {
   "id": 25,
+  "country": "Portugal",
+  "city": "Silvares",
   "name": "Rolf Sayes",
   "profession": "Accountant I",
   "mastery": "data",
