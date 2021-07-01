@@ -23,17 +23,21 @@ import {
     MeetingDate,
     MeetingTime,
     Countdown,
-    CountdownMessage
+    CountdownMessage,
+    RemoteMessage,
+    EndCallButton
 } from './VideoChat.styles';
 
 const VideoChat = () => {
-    
+
+    let remotePic = '';
+    const [avatar, setAvatar] = useState('');
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState('');
+    const [name, setName] = useState('');
+
     const [autoplay, setAutoplay] = useState('autoplay');
-    const [muted, setMuted] = useState('muted');
-    const [playsinline, setPlaysinline] = useState('playsinline');
-
-    const [status, setStatus] = useState('active');
-
+    const [status, setStatus] = useState('');
     const [isMicEnabled, setIsMicEnabled] = useState(true);
     const [isCamEnabled, setIsCamEnabled] = useState(true);
 
@@ -47,6 +51,11 @@ const VideoChat = () => {
         muteAudio();
     }
 
+    function handleCall (){
+        console.log('hangup');
+        
+    }
+
     useEffect(() => {
         console.log('Chat Component');
         if (status === 'active') {
@@ -55,12 +64,23 @@ const VideoChat = () => {
         
     },[status]);
 
+    useEffect(()=>{
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        setAvatar(urlParams.get('avatar'))
+        setDate(urlParams.get('date'))
+        setTime(urlParams.get('time'))
+        setName(urlParams.get('name'))
+        setStatus(urlParams.get('status'))
+        remotePic = urlParams.get('avatar');
+    })
+
     return(
         <>
         <MeetingDetails>
-            <MeetingTitle>Cita con Ana Rojas</MeetingTitle>
-            <MeetingDate>Viernes 2 de Julio 2021</MeetingDate>
-            <MeetingTime>11:00 - 12:00</MeetingTime>
+            <MeetingTitle>Cita con {name}</MeetingTitle>
+            <MeetingDate>{date}</MeetingDate>
+            <MeetingTime>{time}</MeetingTime>
             <Countdown status={status}>
                 <CountdownMessage type="scheduled" status={status}>Tu cita estará lista en:</CountdownMessage> 
                 <CountdownMessage type="scheduled" status={status}> 06d: 05h: 40m</CountdownMessage>
@@ -72,16 +92,17 @@ const VideoChat = () => {
             <VideoUser>
                 <Video id="localVideo"  autoplay={autoplay} />
                 <VideoBar>
-                    <VideoButton onClick={handleCam} type="video" video={isCamEnabled}/>
-                    <VideoButton onClick={handleMic} type="audio" audio={isMicEnabled}/>
+                    <VideoButton alt="Video On/Off" onClick={handleCam} type="video" video={isCamEnabled}/>
+                    <VideoButton alt="Terminar Llamada" onClick={handleMic} type="audio" audio={isMicEnabled}/>
+                    
                 </VideoBar>
-                
             </VideoUser>
             <VideoUser>
-                <Video id="remoteVideo" autoplay playsinline></Video>
+                <Video id="remoteVideo" autoplay="autoplay"> </Video>
+                <RemoteMessage ></RemoteMessage>
                 <RemoteUserDetails>
-                    <RemoteAvatar role="Client"/>
-                    <RemoteName>Ana Rojas</RemoteName>
+                    <RemoteAvatar src={'https://randomuser.me/api/portraits/'+avatar+'.jpg'} role="Client"/>
+                    <RemoteName>{name}</RemoteName>
                 </RemoteUserDetails>
             </VideoUser>
         </ChatMain>

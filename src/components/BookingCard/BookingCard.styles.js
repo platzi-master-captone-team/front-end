@@ -14,11 +14,13 @@ export const Card = styled.article`
 `
 
 export const Avatar = styled.img`
-    padding: 1rem 0 1rem 2rem;
+    width: auto;
+    border-radius:50%;
+    height: 80px;
+    margin: 0 auto 0 1.5rem;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 `
-Avatar.defaultProps = {
-    src: avatar
-};
+
 
 export const BookingDetails = styled.section`
     display: flex;

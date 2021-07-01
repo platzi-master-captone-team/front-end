@@ -173,9 +173,11 @@ export const videoChatLoad = () => {
     }
     
     //Sending bye if user closes the window
-    window.onbeforeunload = function (e) {
+    window.addEventListener("beforeunload", (e) => { 
+      console.log('ev list beforeunload')
       sendMessage('bye', room);
-    };
+      stop();
+    });
     
     //Creating peer connection
     function createPeerConnection() {
@@ -277,16 +279,6 @@ export const videoChatLoad = () => {
       peerConnection = null;
     }
     
-    function muteAudio() {
-      let enabled = localVideo.srcObject.getTracks()[0].enabled;
-      localVideo.srcObject.getTracks()[0].enabled = !enabled;
-    }
-    
-    function muteVideo() {
-      let enabled = localVideo.srcObject.getTracks()[1].enabled;
-      localVideo.srcObject.getTracks()[1].enabled = !enabled;
-    }
-    
     }
   
   
@@ -305,6 +297,8 @@ export const muteVideo = () => {
   let enabled = localVideo.srcObject.getTracks()[1].enabled;
   localVideo.srcObject.getTracks()[1].enabled = !enabled;
 }
+
+
 
 
 

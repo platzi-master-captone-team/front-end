@@ -1,5 +1,5 @@
 import { SectionTitle } from "../ProfileSection/ProfileSection.styles";
-import BookingList from "../BookingList/BookingList";
+import BookingListFinished from "../BookingListFinished/BookingListFinished";
 
 
 
@@ -7,7 +7,7 @@ const SectionHistory = () => {
     return(
         <>
             <SectionTitle>Citas Finalizadas</SectionTitle>
-            <BookingList />
+            <BookingListFinished />
         </>
     )
 }
