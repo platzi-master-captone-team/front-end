@@ -407,8 +407,6 @@ export const LoginForm = () => {
 
 
     const onSubmit = async (data) => {
-        console.log(data)
-
          let object = {
             email: data.email,
             password: data.password
@@ -417,8 +415,8 @@ export const LoginForm = () => {
         
         await axios.post('https://consultify.herokuapp.com/api/user/login', object)
             .then(response => {
-                console.log("Status: ", response.status)
-                console.log("Data: ", response.data)
+                //console.log("Status: ", response.status)
+                //console.log("Data: ", response.data)
                 cookie.set("token", response.data.token)
                 const tokenData = jwt_decode(response.data.token);
                 const userRole = tokenData.role_id === 1 ? 'Cliente': 'Experto';
