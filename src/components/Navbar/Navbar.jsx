@@ -31,11 +31,11 @@ const Navbar = () => {
 
     function getLoginStatus () {
         const token = cookie.get('token') 
-        console.log('token authorized:', token)  
+        //console.log('navbar token authorized:', token)  
         
         if(token && login.status === false) {
             const tokenData = jwt_decode(token);
-            console.log("tokendata: " + tokenData);
+            //console.log("tokendata: " + tokenData);
             const userRole = tokenData.role_id === 1 ? 'Experto': 'Cliente';
             
             setLogin({...login, status:true, role: userRole, name:tokenData.name});
