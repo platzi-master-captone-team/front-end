@@ -39,7 +39,7 @@ export const SocialButtons = styled.div`
     }
 
 `
-export const SocialButton = styled.button`
+export const SocialButton = styled.a`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,6 +49,8 @@ export const SocialButton = styled.button`
     border-radius: 1.2rem;
     font-weight: bold;
     font-size: var(--font-x-small);
+    text-decoration: none;
+    color: black;
     margin-bottom: ${props => props.marginBottom};
     cursor: pointer;
     @media (max-width: 768px) {
