@@ -4,6 +4,14 @@ import cookie from 'js-cookie'
 
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
+
+  const queryString = window.location.search;
+  console.log(' protected route -> query string: '+ queryString);
+  const urlParams = new URLSearchParams(queryString);
+  if (urlParams) {
+    cookie.set('token', urlParams.get('token'));
+  }
+  
   const token = cookie.get('token') 
   console.log('token authorized:', token)  
   return (
