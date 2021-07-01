@@ -5,10 +5,11 @@ import cookie from 'js-cookie'
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
   let token = cookie.get('token')
+  //console.log('initial token'+token)
   const queryString = window.location.search;
   //console.log(' protected route -> query string: '+ queryString);
   const urlParams = new URLSearchParams(queryString);
-  if (token === '') {
+  if (token === undefined) {
     cookie.set('token', urlParams.get('token'));
   }
   
