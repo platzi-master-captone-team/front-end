@@ -9,7 +9,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   const queryString = window.location.search;
   console.log(' protected route -> query string: '+ typeof(queryString));
   const urlParams = new URLSearchParams(queryString);
-  if (typeof(token) != undefined && token != null && token != '') {
+  if (typeof(token) != undefined && token != null && !token) {
     console.log('Enter setToken: '+typeof(token))
     cookie.set('token', urlParams.get('token'));
   }
