@@ -436,8 +436,8 @@ export const LoginForm = () => {
             <Title>Login</Title>
             <TextIndicator>Ingresa con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"column"} >
-                <SocialButton href='http://consultify.herokuapp.com/api/user/auth/google' marginBottom={"1rem"} buttonWidth={"100%"}  ><SocialButtonImg src={logoGoogle}  />Ingresa con Google</SocialButton>
-                <SocialButton href='http://consultify.herokuapp.com/api/user/auth/linkedin' marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoLinkedIn}/>Ingresa con LinkedIn</SocialButton>
+                <SocialButton href='http://consultify.herokuapp.com/api/user/auth/google' rel="noopener" rel="noreferrer" marginBottom={"1rem"} buttonWidth={"100%"}  ><SocialButtonImg src={logoGoogle}  />Ingresa con Google</SocialButton>
+                <SocialButton href='http://consultify.herokuapp.com/api/user/auth/linkedin' rel="noopener" rel="noreferrer" marginBottom={"1rem"} buttonWidth={"100%"}><SocialButtonImg src={logoLinkedIn}/>Ingresa con LinkedIn</SocialButton>
             </SocialButtons>
             <TextIndicator>O ingresa con tu correo</TextIndicator>
             <FormContainer onSubmit={handleSubmit(onSubmit)} >

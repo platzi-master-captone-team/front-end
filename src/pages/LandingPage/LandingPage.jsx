@@ -32,11 +32,11 @@ function LandingPage () {
         <Social>
           <SocialTitle>Sigamos en Contacto</SocialTitle>
           <SocialBar>
-          <SocialLink href={'https://www.youtube.com'}><SocialIcon src={youtube}/></SocialLink>
-          <SocialLink href={'https://www.facebook.com'}><SocialIcon src={facebook}/></SocialLink>
-          <SocialLink href={'https://www.twitter.com'}><SocialIcon src={twitter}/></SocialLink>
-          <SocialLink href={'https://www.linkedin.com/company/consultify-tech/'}><SocialIcon src={linkedin}/></SocialLink>
-          <SocialLink href={'https://www.instagram.com'}><SocialIcon src={instagram}/></SocialLink>
+          <SocialLink href={'https://www.youtube.com'} rel="noopener" rel="noreferrer"><SocialIcon src={youtube}/></SocialLink>
+          <SocialLink href={'https://www.facebook.com'} rel="noopener" rel="noreferrer"><SocialIcon src={facebook}/></SocialLink>
+          <SocialLink href={'https://www.twitter.com'} rel="noopener" rel="noreferrer"><SocialIcon src={twitter}/></SocialLink>
+          <SocialLink href={'https://www.linkedin.com/company/consultify-tech/'} rel="noopener" rel="noreferrer"><SocialIcon src={linkedin}/></SocialLink>
+          <SocialLink href={'https://www.instagram.com'} rel="noopener" rel="noreferrer"><SocialIcon src={instagram}/></SocialLink>
           </SocialBar>
         </Social>
       </Main>

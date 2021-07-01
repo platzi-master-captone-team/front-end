@@ -4,6 +4,7 @@ import micOn from '../../assets/images/mic-on.svg';
 import micOff from '../../assets/images/mic_off.svg';
 import camOn from '../../assets/images/videocam-on.svg';
 import camOff from '../../assets/images/videocam_off.svg';
+import hangUp from '../../assets/images/call_end.svg';
 
 import avatar from '../../assets/images/avatar.png';
 import avatar2 from '../../assets/images/avatar2.png';
@@ -83,17 +84,35 @@ export const VideoButton = styled.img.attrs(props => ({
     margin-right: 1rem;
 `
 
+export const EndCallButton = styled.img.attrs(props => ({
+    src: hangUp,
+  }))
+
+`
+    font-family: var(--font-primary);
+    font-weight: bold;
+    font-size: var(--font-medium);
+    width: 50px;
+    color: black;
+    padding: 0.5rem 1rem;
+    border-style: none;
+    background: var(--color-tertiary);
+    border-radius: 15px;
+    text-decoration: none;
+    margin-right: 1rem;
+`
+
 export const RemoteUserDetails = styled.aside`
     display: flex;
     justify-content: center;
     padding: 0.5rem
 `
-export const RemoteAvatar = styled.img.attrs(props => ({
-    src: props.role === 'Client' ? avatar2: avatar,
-  }))
+export const RemoteAvatar = styled.img
   `
     display: flex;
     justify-content: center;
+    border-radius: 50%;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     width: 40px;
     
 `
@@ -113,6 +132,13 @@ export const Countdown = styled.div`
 
 
 export const CountdownMessage = styled.p`
+    font-weight: 700;
+    padding: 0.5rem;
+    text-align: center;
+    display: ${props => props.status === props.type ? 'inline' : 'none'};
+`
+
+export const RemoteMessage = styled.p`
     font-weight: 700;
     padding: 0.5rem;
     text-align: center;
