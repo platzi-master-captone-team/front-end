@@ -18,11 +18,17 @@ export const PaymentButton = styled.button`
     color: white;
     padding: 0.5rem 1rem;
     border-style: none;
-    background: var(--color-tertiary);
+    background: ${props => props.approved === true ? 'green' : 'var(--color-tertiary)'};;
     border-radius: 15px;
     text-decoration: none;
     align-self:right;
     max-width: 340px;
+    cursor: pointer;
+    display : ${props => props.$show === true ? 'inline' : 'none'};
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      } 
 `
 
 export const RadioButton = styled.input.attrs(props => ({
@@ -102,3 +108,25 @@ export const InputBlock = styled.div`
     width: 45%;
     margin: 1rem;
 ` 
+
+export const ValidationMsg = styled.span`
+  font-weight: bold;
+  color : ${props => props.valid === true ? 'green' : 'red'};
+  font-size: var(--font-small);
+  display : ${props => props.$show === true ? 'display' : 'none'};
+`
+
+export const Error = styled.span`
+    display: block;
+    font-size: var(--font-small);
+    color:  #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border-radius: 0.5rem;
+    position: relative;
+    bottom: 25px;
+`

@@ -1,5 +1,7 @@
 import { FormContainer, InputContainer, InputLabel} from '../FormPersonal/FormPersonal.styles';
 import { useState, useEffect, useRef } from "react";
+import { useHistory } from "react-router-dom";
+import { useForm } from 'react-hook-form';
 
 import {
     PaymentMethod,
@@ -10,13 +12,20 @@ import {
     CardInput,
     CardExpirationInput,
     EXPCVVContainer,
-    InputBlock
+    InputBlock,
+    ValidationMsg
 } from './FormPayment.styles';
 
 const FormPayment = () => {
+    let history = useHistory();
+    const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
     const [payMethod, setPayMethod] = useState('paypal')
     const [card, setCard] = useState();
+    const [errorMessage, setErrorMessage] = useState('')
+    const [isValidCC, setIsValidCC] = useState('')
+    const [isProcessing, setIsProcessing] = useState(false)
+    const [isApproved, setIsApproved] = useState(false)
     const inputCard = useRef();
 
     function handleChange (ev) {
@@ -40,10 +49,37 @@ const FormPayment = () => {
         handleCard();
     }, [card]);
 
+    const onSubmit = async (data, e) => {
+        console.log(data)
+        
+            let object = {
+                name: data.name,
+                email: data.email,
+                phone_number: data.phone_number,
+                country_id: data.country_id,
+                password: data.password,
+                role_id: data.role_id
+            }
+
+        try {
+            setIsProcessing(true)
+            setTimeout(()=>{
+                setIsProcessing(false)
+                setIsApproved(true)
+                console.log("Payment processed")
+                setTimeout(()=>{
+                    history.push("/profile/dashboard")
+                },4000)
+                
+          },2000 )  
+        } catch (err) {
+          console.error(err.message);
+        }
+    }
 
 
     return(
-        <FormContainer >
+        <FormContainer onSubmit={handleSubmit(onSubmit)}>
             <PaymentMethod>
                 <RadioButton type="radio" value='paypal' checked={payMethod} onChange={handleChange}></RadioButton>
                 <RadioLabel>Paypal</RadioLabel>
@@ -76,9 +112,11 @@ const FormPayment = () => {
                     </InputBlock>
                 </EXPCVVContainer>
             </InputContainer>    
-            <PaymentButton>
-                Procesar Pago
+            <PaymentButton disabled={isProcessing || isApproved} $show={!isProcessing} approved={isApproved}>
+                 {isApproved ? 'Pago Exitoso' : 'Procesar Pago'}
             </PaymentButton>
+            <PaymentButton disabled={isProcessing || isApproved} $show={isProcessing}> Procesando Pago... </PaymentButton>
+            <ValidationMsg $show={isApproved} valid={isApproved}>Cita Confirmada. Serás redirigido a tu dashboard.</ValidationMsg>
         </FormContainer>
     )
 }
