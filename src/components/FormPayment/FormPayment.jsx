@@ -21,7 +21,7 @@ const FormPayment = () => {
     let history = useHistory();
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
-    const [payMethod, setPayMethod] = useState('paypal')
+    const [payMethod, setPayMethod] = useState('card')
     const [card, setCard] = useState();
     const [errorMessage, setErrorMessage] = useState('')
     const [isValidCC, setIsValidCC] = useState('')
@@ -82,10 +82,6 @@ const FormPayment = () => {
 
     return(
         <FormContainer onSubmit={handleSubmit(onSubmit)}>
-            <PaymentMethod>
-                <RadioButton type="radio" value='paypal' checked={payMethod} onChange={handleChange}></RadioButton>
-                <RadioLabel>Paypal</RadioLabel>
-            </PaymentMethod>
             <PaymentMethod>
                 <RadioButton type="radio" value='card' checked={payMethod} onChange={handleChange}></RadioButton>
                 <RadioLabel>Tarjeta de Débito o Crédito</RadioLabel>
