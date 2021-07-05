@@ -37,7 +37,7 @@ export const videoChatLoad = () => {
     };
     
     // Prompting for room name:
-    let room = window.location.pathname.split('/')[1];
+    let room = window.location.pathname.split('/')[2];
     
     //Initializing socket.io
     const socket = io('https://rubdevs.herokuapp.com');

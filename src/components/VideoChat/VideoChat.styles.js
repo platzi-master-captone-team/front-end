@@ -47,17 +47,19 @@ export const VideoUser = styled.div`
     flex-direction:column;
     align-items: center;
     justify-content: flex-start;
+    
 `
 
 export const Video = styled.video.attrs(props => ({
     autoplay: props.autoplay,
   }))
 `
-    border: 1px solid black;
-    border-radius: 15px;
-    width: 300px;
-    height: 200px;
-    
+    border: 2px solid ${props => props.status ? 'var(--color-tertiary)' : 'red'};
+    border-radius: 16px;
+    width: 302px;
+    height: 202px;
+    background: var(--color-tertiary);
+    display: ${props => props.status ? 'inline' : 'none'};
 `
 
 export const VideoBar = styled.div`
@@ -142,5 +144,5 @@ export const RemoteMessage = styled.p`
     font-weight: 700;
     padding: 0.5rem;
     text-align: center;
-    display: ${props => props.status === props.type ? 'inline' : 'none'};
+    display: ${props => props.status ? 'inline' : 'none'};
 `
