@@ -36,8 +36,9 @@ export const RegisterExpertForm = () => {
 
     const { register, handleSubmit, formState: { errors }, getValues } = useForm();
 
+    const [userError, setUserError] = useState(null)
+
     const onSubmit = async (data, e) => {
-        console.log(data)
         
             let object = {
                 name: data.name,
@@ -53,12 +54,19 @@ export const RegisterExpertForm = () => {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(object)
-          });
+          })
 
-          window.location = "/login";
-        } catch (err) {
-          console.error(err.message);
-        }
+          const data = await response.json()
+
+            if (data.error) {
+                setUserError(data.error)
+            } else {
+                window.location = "/login";
+            }
+
+          } catch (err) {
+            console.error(err.message);
+          }
     }
 
     return (
@@ -91,10 +99,11 @@ export const RegisterExpertForm = () => {
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     message: "Ingresa un correo válido"
-                                }
+                                },
                             })}
                         />
                         {errors.email && (<Error>{errors.email.message}</Error>)}
+                        {userError && (<Error>El correo ya existe</Error>)}
                     </InputContainer>
                     <InputContainer>
                         <InputLabel>Teléfono</InputLabel>
@@ -170,12 +179,27 @@ export const RegisterExpertForm = () => {
                     </InputContainer>
                     <InputContainer>
                         <InputLabel>Clave de Identificación (RFC, RUT, RUC)</InputLabel>
-                        <Input type="file" name="file"
-                            {...register("file", {
-                                required: { value: true },
+                        <Input type="text" name="document"
+                            {...register("document", {
+                                required: {
+                                    value: true,
+                                    message: "Ingresa un número de registro"
+                                },
+                                pattern: {
+                                    value: /^[A-Z0-9.-]/i,
+                                    message: "Ingresa un número de registro válido"
+                                },
+                                minLength: { 
+                                    value: 9, 
+                                    message: 'El número de registro no es válido' 
+                                },
+                                maxLength: { 
+                                    value: 13, 
+                                    message: 'El número de registro no es válido' 
+                                }
                             })}
                         />
-                        {errors.file && <Error>Selecciona un archivo</Error>}
+                        {errors.document && <Error>{errors.document.message}</Error>}
                     </InputContainer>
                     <Input 
                         type="hidden" 
@@ -382,6 +406,8 @@ export const LoginForm = () => {
     
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const [userError, setUserError] = useState(null)
+
     const responseSuccessGoogle = async (response) => {
         console.log(response)
         await axios({
@@ -415,15 +441,16 @@ export const LoginForm = () => {
         
         await axios.post('https://consultify.herokuapp.com/api/user/login', object)
             .then(response => {
-                //console.log("Status: ", response.status)
-                //console.log("Data: ", response.data)
+                // console.log("Status: ", response.status)
+                // console.log("Data: ", response.data)
                 cookie.set("token", response.data.token)
                 const tokenData = jwt_decode(response.data.token);
                 const userRole = tokenData.role_id === 1 ? 'Cliente': 'Experto';
                 setLogin({...login, status:true, role: userRole, name:tokenData.name});
                 history.push('/profile/dashboard')
             }).catch(error => {
-                console.log(error)
+                  console.log(error)
+                  setUserError(error.response.data.error)
             })
 
     }
@@ -442,6 +469,7 @@ export const LoginForm = () => {
             <TextIndicator>O ingresa con tu correo</TextIndicator>
             <FormContainer onSubmit={handleSubmit(onSubmit)} >
                 <Inputs>
+                {userError && (<Error>Correo o Contraseña no válidos</Error>)}
                     <InputLabel>Correo</InputLabel>
                     <Input
                         type="email"

@@ -66,7 +66,7 @@ export const Card = styled.div`
     flex-direction: column;
     justify-content: center;
     flex-grow: 0;
-    width: 260px;
+    width: 280px;
     height: auto;
     overflow: hidden;
     border-radius: 15px;
@@ -140,10 +140,6 @@ export const Description = styled.p`
     font-weight: normal;
     font-size: var(--font-small);
     line-height: 18px;
-    letter-spacing: 1px;
-    @media (max-width: 768px) {
-        font-size: var(--font-medium);
-    }    
 `
 export const Button = styled.a`
     font-weight: bold;
