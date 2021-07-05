@@ -2,7 +2,7 @@ import { videoChatLoad, muteAudio, muteVideo } from './webRTC';
 import io from "socket.io-client";
 import Peer from "simple-peer";
 
-import {useLocation} from 'react-router-dom';
+import {useLocation, useHistory} from 'react-router-dom';
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -22,13 +22,13 @@ import {
     Countdown,
     CountdownMessage,
     RemoteMessage,
-    EndCallButton
+    EndCallButton,
+    ChatLink
 } from './VideoChat.styles';
-
-import hangUp from '../../assets/images/call_end.svg';
 
 const VideoChat = () => {
     let location = useLocation();
+    let history = useHistory();
 
     let remotePic = '';
 
@@ -43,13 +43,14 @@ const VideoChat = () => {
 
     const [localStatus, setLocalStatus] = useState(false);
     const [remoteStatus, setRemoteStatus] = useState(false);
+    const [isCallEnded, setIsCallEnded] = useState(false);
 
-    /* const [isChannelReady, setIsChannelReady] = useState(false);
-    const [isInitiator, setIsInitiator] = useState(false);
-    const [isStarted, setIsStarted] = useState(false);
-    const [localStream, setLocalStream] = useState('');
-    const [peerConnection, setPeerConnection] = useState('');
-    const [remoteStream, setRemoteStream] = useState(''); */
+    //const [isChannelReady, setIsChannelReady] = useState(false);
+    //const [isInitiator, setIsInitiator] = useState(false);
+    //const [isStarted, setIsStarted] = useState(false);
+    const [locStream, setLocStream] = useState('');
+    const [peerConn, setPeerConn] = useState('');
+    const [remStream, setRemStream] = useState('');
 
     let isChannelReady = false;
     let isInitiator = false;
@@ -59,7 +60,7 @@ const VideoChat = () => {
     let remoteStream;
 
 
-    const [room, setRoom] = useState(window.location.pathname.split('/')[1]);
+    const [room, setRoom] = useState(window.location.pathname.split('/')[2]);
 
     let pcConfig = {
         iceServers: [
@@ -85,27 +86,24 @@ const VideoChat = () => {
 
     function handleEndCall (){
         console.log('hangup');
-        userVideo.current.srcObj.stop()
-        console.log(localStream)
+        if (locStream) {
+            locStream.getTracks().forEach(function(track) {
+                track.stop();
+              });
+        }
+        if (remStream) {
+        remStream.getTracks().forEach(function(track) {
+            track.stop();
+          });
+        }
+        userVideo.current.srcObject = null;
+        partnerVideo.current.srcObject = null;
+        console.log(locStream)
         
     }
 
-    function stopStream() {
-        console.log('stop stream')
-        navigator.mediaDevices
-            .getUserMedia({
-                audio: true,
-                video: {width: 300, height: 200},
-            })
-            .then(stream => {
-                localStream = stream;
-                localStream.getTracks().forEach(function(track) {
-                    track.stop();
-                  });
-            })
-            .catch(function (e) {
-                console.log('getUserMedia() error: ' + e.name);
-            });
+    function handleRejoin (){
+        history.go(0);
     }
 
     useEffect(() => {
@@ -121,6 +119,7 @@ const VideoChat = () => {
             })
             .then(stream => {
                 localStream = stream;
+                setLocStream(stream)
                 setLocalStatus(true);
                 gotStream(stream);
             })
@@ -228,7 +227,6 @@ const VideoChat = () => {
         console.log('>>>>>>> maybeStart() ', 'isStarted: '+ isStarted);
         console.log('>>>>>>> maybeStart() ', 'localStream: '+ localStream);
         console.log('>>>>>>> maybeStart() ', 'isChannelReady: '+isChannelReady);
-        console.log('remoteStatus: '+ remoteStream)
         if (!isStarted && typeof localStream !== 'undefined' && isChannelReady) {
           console.log('>>>>>> creating peer connection');
           createPeerConnection();
@@ -251,7 +249,7 @@ const VideoChat = () => {
           peerConnection.onaddstream = handleRemoteStreamAdded;
           peerConnection.onremovestream = handleRemoteStreamRemoved;
           console.log('Created RTCPeerConnnection');
-
+          setPeerConn(peerConnection);
         } catch (e) {
           console.log('Failed to create PeerConnection, exception: ' + e.message);
           alert('Cannot create RTCPeerConnection object.');
@@ -311,6 +309,7 @@ const VideoChat = () => {
         console.log('Remote stream added.');
         remoteStream = event.stream;
         setRemoteStatus(true);
+        setRemStream(event.stream);
         console.log('Remote Stream: '+ remoteStream)
         partnerVideo.current.srcObject = remoteStream;
         partnerVideo.current.onloadedmetadata = function(e) {
@@ -320,7 +319,7 @@ const VideoChat = () => {
       
       function handleRemoteStreamRemoved(event) {
         console.log('Remote stream removed. Event: ', event);
-        remoteStream.getTracks().forEach((track) => {
+        remStream.getTracks().forEach((track) => {
             track.stop();
         });
         partnerVideo.current.srcObject = null;
@@ -329,8 +328,9 @@ const VideoChat = () => {
       function hangup() {
         console.log('Hanging up.');
         stop();
-        
-        sendMessage('bye', room);
+        sendMessage({
+            type: 'bye'
+          }, room);
 
       }
       
@@ -341,13 +341,26 @@ const VideoChat = () => {
       }
       
       function stop() {
-        console.log("Peer Conn: " + peerConnection);
+        console.log("Peer Conn: " + peerConn);
         isStarted =false;
-        if (peerConnection){
-            peerConnection.removeStream(localStream)
-            peerConnection.close();
-            peerConnection = null;
+        if (peerConn){
+            peerConn.removeStream(locStream)
+            peerConn.close();
+            setPeerConn(null);
         }
+        if (locStream) {
+            locStream.getTracks().forEach(function(track) {
+                track.stop();
+              });
+        }
+        if (remStream) {
+        remStream.getTracks().forEach(function(track) {
+            track.stop();
+          });
+        }
+        userVideo.current.srcObject = null;
+        partnerVideo.current.srcObject = null;
+        setIsCallEnded(true);
       }
 
     useEffect(()=>{
@@ -381,17 +394,17 @@ const VideoChat = () => {
             </Countdown>
         </MeetingDetails>
         <ChatMain status={status}>
-            <VideoUser>
-                <Video status={localStatus} id="localVideo" playsInline muted ref={userVideo} autoPlay />
+        
+            <VideoUser status={isCallEnded}>
+                <Video status={localStatus}id="localVideo" playsInline muted ref={userVideo} autoPlay />
                 <RemoteMessage status={!localStatus}></RemoteMessage>
                 <VideoBar>
                     <VideoButton alt="Video On/Off" onClick={handleCam} type="video" video={isCamEnabled}/>
                     <VideoButton alt="Mic On/Off" onClick={handleMic} type="audio" audio={isMicEnabled}/>
-                    
-                    
+                    <EndCallButton alt="Terminar Llamada" onClick={hangup} type="hangup"/>
                 </VideoBar>
             </VideoUser>
-            <VideoUser>
+            <VideoUser status={isCallEnded}>
                 <Video status={remoteStatus}  id="remoteVideo" playsInline ref={partnerVideo} autoPlay ></Video>
                 <RemoteMessage status={!remoteStatus}>Esperando al usuario remoto</RemoteMessage>
                 <RemoteUserDetails>
@@ -400,6 +413,8 @@ const VideoChat = () => {
                 </RemoteUserDetails>
             </VideoUser>
         </ChatMain>
+        <RemoteMessage status={isCallEnded}>Videollamada terminada.</RemoteMessage>
+        
         </>
     )
 }
