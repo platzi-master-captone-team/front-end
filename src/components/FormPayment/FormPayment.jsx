@@ -51,7 +51,7 @@ const FormPayment = () => {
     }, [card]);
 
     const onSubmit = (data, e) => {
-        console.log(data)
+        //console.log(data)
         
         let object = {
             card_name: data.card_name,
@@ -60,7 +60,6 @@ const FormPayment = () => {
             exp_year: data.exp_year,
             cvv: data.cvv
         }
-        console.log(object)
 
 
         try {
