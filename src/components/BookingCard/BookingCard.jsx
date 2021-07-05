@@ -11,16 +11,16 @@ import {
     Finished
 } from "./BookingCard.styles";
 
-const BookingCard = ( {status} ) => {
+const BookingCard = ( {status, name, date, time, avatar, booking_id} ) => {
     return (
         <Card>
-            <Avatar />
+            <Avatar src={'https://randomuser.me/api/portraits/'+avatar+'.jpg'}/>
             <BookingDetails>
-                <BookingTitle>Cita con Carmen Herrera</BookingTitle>
-                <BookingDate>Viernes 18 de Junio 2021</BookingDate>
-                <BookingTime>11:00 - 12:00</BookingTime>
+                <BookingTitle>Cita con {name}</BookingTitle>
+                <BookingDate>{date}</BookingDate>
+                <BookingTime>{time}</BookingTime>
                 <JoinChat>
-                    <ChatLink status={status} to='/chat/holi'>Unirse</ChatLink>
+                    <ChatLink status={status} to={'/chat/'+booking_id+'?name='+name+'&avatar='+avatar+'&date='+date+'&time='+time+'&status='+status}>Unirse</ChatLink>
                     <Finished status={status}>Finalizada</Finished>
                     <Indicator status={status}></Indicator>
                 </JoinChat>
