@@ -3,19 +3,44 @@ import ReactPaginate from 'react-paginate'
 import { SearchResultsContainer, StyledPaginateContainer, SearchBarContainer, List, Item, Select, Option } from './SearchComponentsStyles.jsx'
 import SearchCard from './SearchCard'
 import JsonData from "../../assets/json/MOCK_DATA.json"
+import JsonCategories from "../../assets/json/categories.json"
 
 const SearchResults = () => {
     const [experts, setExperts] = useState(JsonData)
-    const [sortType, setSortType] = useState('frontend')
+    const [categories, setCategories] = useState(JsonCategories)
 
+
+    // Filters
+    const [filterMastery, setfilterMastery] = useState()    
+    const [filterTechnologies, setfilterTechnologies] = useState()
+    const [sortPrice, setSortPrice] = useState()
+
+    // Filter by Mastery
     useEffect(() => {
         const sortArray = type => {
             const types = {
                 frontend: 'frontend',
                 backend: 'backend',
-                data: 'data',
-                highprice: 'highprice',
-                lowprice: 'lowprice',
+                "data-science": 'data-science',
+            }
+            const sortProperty = types[type]
+
+            const filter = [...JsonData].filter(data => {
+                if(filterMastery && filterMastery === sortProperty ) {
+                    return data.mastery === filterMastery
+                } else {
+                    return data.mastery
+                }
+            })
+            setExperts(filter)
+        }
+        sortArray(filterMastery)
+    }, [filterMastery])
+
+    // Filter by Technologies
+    useEffect(() => {
+        const sortArray = type => {
+            const types = {
                 react: 'react',
                 vue: 'vue',
                 angular: 'angular',
@@ -28,34 +53,29 @@ const SearchResults = () => {
                 scala: 'scala',
             }
             const sortProperty = types[type]
+
+            const filter = [...JsonData].filter(data => {
+                if(filterTechnologies && filterTechnologies === sortProperty ) {
+                    return data.technologies === filterTechnologies
+                } else {
+                    return data.technologies
+                }
+            })
+            setExperts(filter)
+        }
+        sortArray(filterTechnologies)
+    }, [filterTechnologies])
+
+    // Sort By Price
+     useEffect(() => {
+        const sortArray = type => {
+            const types = {
+                highprice: 'highprice',
+                lowprice: 'lowprice',
+            }
+            const sortProperty = types[type]
             const sorted = [...JsonData].sort((a, b) => {
                 switch(sortProperty) {
-                    case 'frontend':
-                        return b.mastery.localeCompare(a.mastery)
-                    case 'backend':
-                        return a.mastery.localeCompare(b.mastery)
-                    case 'data':
-                        return b.mastery.localeCompare(a.mastery)
-                    case 'react':
-                        return b.technologies.localeCompare(a.technologies)
-                    case 'vue':
-                        return a.technologies.localeCompare(b.technologies)
-                    case 'angular':
-                        return b.technologies.localeCompare(a.technologies)
-                    case 'node':
-                        return a.technologies.localeCompare(b.technologies)
-                    case 'php':
-                        return b.technologies.localeCompare(a.technologies)
-                    case 'django':
-                        return a.technologies.localeCompare(b.technologies)
-                    case 'rails':
-                        return b.technologies.localeCompare(a.technologies)
-                    case 'python':
-                        return a.technologies.localeCompare(b.technologies)
-                    case 'r':
-                        return b.technologies.localeCompare(a.technologies)
-                    case 'scala':
-                        return a.technologies.localeCompare(b.technologies)
                     case 'lowprice':
                         return a['fee'] - b['fee']
                     case 'highprice':
@@ -66,8 +86,8 @@ const SearchResults = () => {
             })
             setExperts(sorted)
         }
-        sortArray(sortType)
-    }, [sortType])
+        sortArray(sortPrice)
+    }, [sortPrice])
 
 
     // useEffect(() => {
@@ -88,7 +108,7 @@ const SearchResults = () => {
     const displayExperts = experts
         .slice(pageVisited, pageVisited + expertsPerPage)
         .map((expert) => 
-            <SearchCard key={expert.id} id={expert.id} name={expert.name} profession={expert.profession}  description={expert.description.slice(0, 150)} picture={expert.avatar} fee={expert.fee} />  
+            <SearchCard key={expert.id} id={expert.id} name={expert.name} profession={expert.profession}  description={expert.description.slice(0, 153)+"..."} picture={expert.avatar} fee={expert.fee} />  
         )
 
     const pageCount = Math.ceil(experts.length / expertsPerPage)
@@ -102,30 +122,27 @@ const SearchResults = () => {
         <SearchBarContainer>
             <List>
                 <Item>
-                    <Select onChange={e => setSortType(e.target.value)}>
+                    <Select onChange={e => setfilterMastery(e.target.value)}>
                         <Option>Especialidad</Option>
-                        <Option value="frontend">Frontend</Option>
-                        <Option value="backend">Backend</Option>
-                        <Option value="data">Data Science</Option>
+                        {
+                            categories[0].masteries.map(mastery => 
+                                <Option>{mastery}</Option>
+                            )
+                        }
                     </Select>
                 </Item>
                 <Item>
-                    <Select onChange={e => setSortType(e.target.value)}>
-                        <Option>Tecnología</Option>
-                        <Option value="react">React</Option>
-                        <Option value="vue">Vue</Option>
-                        <Option value="angular">Angular</Option>
-                        <Option value="node">Node</Option>
-                        <Option value="php">PHP</Option>
-                        <Option value="django">Django</Option>
-                        <Option value="rails">Rails</Option>
-                        <Option value="python">Python</Option>
-                        <Option value="r">R</Option>
-                        <Option value="scala">Scala</Option>
+                    <Select onChange={e => setfilterTechnologies(e.target.value)}>
+                        <Option>Tecnologías</Option>
+                        {
+                            categories[0].technologies.map(technology => 
+                                <Option>{technology}</Option>
+                            )
+                        }
                     </Select>
                 </Item>
                 <Item>
-                    <Select onChange={e => setSortType(e.target.value)}>
+                    <Select onChange={e => setSortPrice(e.target.value)}>
                         <Option>Precio</Option>
                         <Option value="lowprice">Menor Precio</Option>
                         <Option value="highprice">Mayor Precio</Option>
