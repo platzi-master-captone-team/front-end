@@ -12,11 +12,13 @@ export const MainContainer = styled.div `
     @media (max-width: 768px){
         width: 90%;
         flex-grow: 1;
+        padding: 0.8rem;
+        margin: 0 1rem;
     }
 `
 
 export const FormContainer = styled.form`
-
+    
 `
 export const Title = styled.h2`
     font-style: normal;

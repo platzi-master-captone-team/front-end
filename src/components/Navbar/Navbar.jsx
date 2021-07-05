@@ -10,6 +10,8 @@ import {
     NavBarContainer,
     UserMenuDropdown,
     UserMenuOption,
+    UserMenuLink,
+    LoginButton,
     NavMenu,
     UserMenu,
     Button,
@@ -50,6 +52,11 @@ const Navbar = () => {
         history.push("/");
     }
 
+    function goDashboard () {
+        setUserMenu(false);
+        history.push("/profile/dashboard");
+    }
+
     function ChangeToExpert () {
         setLogin({...login, role:'Experto', name:'Ana Rojas'});
         setUserMenu(false);
@@ -72,14 +79,17 @@ const Navbar = () => {
                 <BrandTitle to='/'>Consultify</BrandTitle>
                 <NavMenu>
                     <NavMenuLink to='/buscar'>Encuentra un Experto</NavMenuLink>
-                    <NavMenuLink to='/login' $show={login.status}>Inicia Sesión</NavMenuLink>
-                    <Button to='/signup' $show={login.status}>Únete Ahora</Button>
+                    
+                    <LoginButton to='/login' $show={login.status} type="primary">Inicia Sesión</LoginButton>
+                    <Button to='/signup' $show={login.status}>Regístrate</Button>
                     <NavMenuLink to='/profile/dashboard' $show={!login.status}>Mi Cuenta</NavMenuLink>
                     <UserMenu>
                         <Avatar onClick={ToggleMenu} src={ avatarURL } $show={!login.status}/>
                         <UserMenuDropdown $show={userMenu}>
-                            <UserMenuOption onClick={ChangeToExpert}>Cambiar a Experto</UserMenuOption>
-                            <UserMenuOption onClick={ChangeToClient}>Cambiar a Cliente</UserMenuOption>
+                            <UserMenuOption onClick={ChangeToExpert}>Modo Experto</UserMenuOption>
+                            <UserMenuOption onClick={ChangeToClient}>Modo Cliente</UserMenuOption>
+                            <UserMenuLink to="/buscar" >Encuentra un Experto</UserMenuLink>
+                            <UserMenuLink to="/profile/dashboard" >Ir al Dashboard</UserMenuLink>
                             <UserMenuOption onClick={CloseSession}>Cerrar Sesión</UserMenuOption> 
                         </UserMenuDropdown>
                         
