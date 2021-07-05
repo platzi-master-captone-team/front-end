@@ -117,16 +117,14 @@ export const ValidationMsg = styled.span`
 `
 
 export const Error = styled.span`
-    display: block;
+    display: inline;
     font-size: var(--font-small);
     color:  #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb;
     width: 100%;
-    height: 25px;
-    line-height: 25px;
     text-align: center;
     border-radius: 0.5rem;
-    position: relative;
-    bottom: 25px;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem;
 `

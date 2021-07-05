@@ -17,7 +17,7 @@ const GlobalStyles = createGlobalStyle`
     --font-primary: 'Karla';
     --font-secondary: 'Rubik';
 
-    --font-x-small: 0.7rem;
+    --font-x-small: 0.6rem;
     --font-small: 0.8rem;
     --font-medium: 1rem;
     --font-large: 1.5rem;

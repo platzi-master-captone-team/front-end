@@ -13,7 +13,8 @@ import {
     CardExpirationInput,
     EXPCVVContainer,
     InputBlock,
-    ValidationMsg
+    ValidationMsg,
+    Error
 } from './FormPayment.styles';
 
 const FormPayment = () => {
@@ -46,20 +47,21 @@ const FormPayment = () => {
       };
 
     useEffect(() => {
-        handleCard();
+       
     }, [card]);
 
-    const onSubmit = async (data, e) => {
+    const onSubmit = (data, e) => {
         console.log(data)
         
-            let object = {
-                name: data.name,
-                email: data.email,
-                phone_number: data.phone_number,
-                country_id: data.country_id,
-                password: data.password,
-                role_id: data.role_id
-            }
+        let object = {
+            card_name: data.card_name,
+            card_number: data.card_number,
+            exp_month: data.exp_month,
+            exp_year: data.exp_year,
+            cvv: data.cvv
+        }
+        console.log(object)
+
 
         try {
             setIsProcessing(true)
@@ -91,24 +93,80 @@ const FormPayment = () => {
             <InputContainer id="card" $show={payMethod}>
                 <InputContainer >
                     <InputLabel>Número de Tarjeta</InputLabel>
-                    <CardInput type="text" placeholder="" maxLength="19" size="19" ref={inputCard} onChange={handleCard}/>
+                    <CardInput type="text" placeholder="" maxLength="16" size="16" 
+                    name="card_number" 
+                    {...register("card_number", {
+                        required: {
+                            value: true ,
+                            message: "Ingresa el número de tarjeta",
+                        },
+                        pattern: {
+                            value: /(^(?:4[0-9]{12}(?:[0-9]{3})|5[1-5][0-9]{14}|3[47][0-9]{13})$)/i,
+                            message: "Ingresa un número de tarjeta válido"
+                        }
+                    })}/>
+                    {errors.card_number && (<Error>{errors.card_number.message}</Error>)}
                 </InputContainer>
                 <InputContainer>
                     <InputLabel>Nombre</InputLabel>
-                    <CardInput type="text" name="card_name" placeholder=""/>
+                    <CardInput type="text" name="card_name" placeholder=""
+                    {...register("card_name", {
+                        required: {
+                            value: true ,
+                            message: "Ingresa el nombre en la tarjeta",
+                        },
+                    })}/>
+                    {errors.card_name && (<Error>{errors.card_name.message}</Error>)}
                 </InputContainer>
                 <EXPCVVContainer>
                     <InputBlock>
                         <InputLabel>Expiración</InputLabel>
                         <CardExp>
-                            <CardExpirationInput type="text" name="month" placeholder="MM  /" maxLength="2" size="2"/>
+                            <CardExpirationInput type="text" name="exp_month" placeholder="MM  /" 
+                            maxLength="2" size="2"
+                            {...register("exp_month", {
+                                required: {
+                                    value: true ,
+                                    message: "Ingresa el mes de expiración",
+                                },
+                                pattern: {
+                                    value: /(^[1-9]$)|(^0[1-9]|1[0-2]$)/i,
+                                    message: "Ingresa un mes válido"
+                                }
+                            })}
+                            />
                             <span>/</span>
-                            <CardExpirationInput type="text" name="year" placeholder="YY" maxLength="2" size="2"/>
+                            <CardExpirationInput type="text" name="exp_year" placeholder="YY" 
+                            maxLength="2" size="2"
+                            {...register("exp_year", {
+                                required: {
+                                    value: true ,
+                                    message: "Ingresa el año de expiración",
+                                },
+                                pattern: {
+                                    value: /(^2[1-9]|[3-9][0-9]$)/i,
+                                    message: "Ingresa un año válido"
+                                }
+                            })}/>
                         </CardExp>
+                        {errors.exp_month && (<Error>{errors.exp_month.message}</Error>)}
+                        {errors.exp_year && (<Error>{errors.exp_year.message}</Error>)}
                     </InputBlock>
                     <InputBlock>
                         <InputLabel>CVV</InputLabel>
-                            <CardInput type="text" name="cvv" placeholder="3 digits" maxLength="4" size="4"/>
+                            <CardInput type="text" name="cvv" placeholder="3 digits" 
+                            maxLength="3" size="3"
+                            {...register("cvv", {
+                                required: {
+                                    value: true ,
+                                    message: "Ingresa el CVV",
+                                },
+                                pattern: {
+                                    value: /([0-9]$)/i,
+                                    message: "Ingresa un CVV válido"
+                                }
+                            })}/>
+                            {errors.cvv && (<Error>{errors.cvv.message}</Error>)}
                     </InputBlock>
                 </EXPCVVContainer>
             </InputContainer>    
