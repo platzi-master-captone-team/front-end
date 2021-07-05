@@ -335,7 +335,7 @@ const VideoChat = () => {
       }
       
       function handleRemoteHangup() {
-        console.log('Session terminated.');
+        console.log('Session terminated remotely.');
         stop();
         isInitiator = false;
       }

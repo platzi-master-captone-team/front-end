@@ -45,6 +45,9 @@ export const NavMenu = styled.nav`
     display: flex;
     align-items: center;
     margin-left: auto;
+    @media (max-width: 600px) {
+        flex-direction: column;
+       }
 `
 export const NavMenuLink = styled(Link)`
     text-decoration: none;
@@ -61,13 +64,31 @@ export const NavMenuLink = styled(Link)`
 export const Button = styled(Link)`
     font-family: Karla;
     font-weight: bold;
-    color: white;
-    padding: 0.5rem 1rem;
+    color: ${props => props.type === "primary" ? 'black' : 'white'};
+    text-decoration: none;
+    padding: 0.3rem 0.8rem;
     border-style: none;
-    background: var(--color-primary);
+    background: ${props => props.type === "primary" ? 'white' : 'var(--color-tertiary)'};
     border-radius: 15px;
     text-decoration: none;
     display: ${props => props.$show ? 'none' : 'inline'};
+    margin: 0 0.3rem;
+`
+export const LoginButton = styled(Link)`
+    font-family: Rubik;
+    font-weight: bold;
+    color: ${props => props.type === "primary" ? 'black' : 'white'};
+    text-decoration: none;
+    padding: 0 0.8rem;
+    border-style: none;
+    background: ${props => props.type === "primary" ? 'white' : 'var(--color-tertiary)'};
+    border-radius: 15px;
+    text-decoration: none;
+    display: ${props => props.$show ? 'none' : 'inline'};
+    margin: 0 0.3rem;
+    @media (max-width: 600px) {
+        margin: 0.6rem;
+       }
 `
 
 export const Avatar = styled.img`
@@ -79,22 +100,46 @@ export const Avatar = styled.img`
 export const UserMenu = styled.div`
     display: flex;
     align-items: center;
+    flex-direction: column;
+    
 `
 
 export const UserMenuDropdown = styled.ul`
     display: ${props => props.$show ? 'flex' : 'none'};
     flex-direction:column;
+    position: absolute;
+    top: 65px;
+    right: -2px;
+    border: 1px solid black;
 `
 
 export const UserMenuOption = styled.li`
     display: block;
     position: relative;
-
+    background: white;
     padding: 0.2rem;
     font-weight: 700;
     cursor: pointer;
+    text-decoration: none;
+    color:black;
 
     &:hover{
-        text-decoration: underline;
+        background: var(--color-primary);
+        color: white;
+    }
+`
+export const UserMenuLink = styled(Link)`
+    display: block;
+    position: relative;
+    background: white;
+    padding: 0.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    color:black;
+
+    &:hover{
+        background: var(--color-primary);
+        color: white;
     }
 `
