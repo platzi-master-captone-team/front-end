@@ -101,6 +101,8 @@ export const UserMenu = styled.div`
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    
     
 `
 
@@ -108,9 +110,10 @@ export const UserMenuDropdown = styled.ul`
     display: ${props => props.$show ? 'flex' : 'none'};
     flex-direction:column;
     position: absolute;
-    top: 65px;
-    right: -2px;
+    top: 50px;
     border: 1px solid black;
+    
+    text-align: center;
 `
 
 export const UserMenuOption = styled.li`
