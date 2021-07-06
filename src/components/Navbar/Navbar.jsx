@@ -86,8 +86,6 @@ const Navbar = () => {
                     <UserMenu>
                         <Avatar onClick={ToggleMenu} src={ avatarURL } $show={!login.status}/>
                         <UserMenuDropdown $show={userMenu}>
-                            <UserMenuOption onClick={ChangeToExpert}>Modo Experto</UserMenuOption>
-                            <UserMenuOption onClick={ChangeToClient}>Modo Cliente</UserMenuOption>
                             <UserMenuLink to="/buscar" >Encuentra un Experto</UserMenuLink>
                             <UserMenuLink to="/profile/dashboard" >Ir al Dashboard</UserMenuLink>
                             <UserMenuOption onClick={CloseSession}>Cerrar Sesión</UserMenuOption> 

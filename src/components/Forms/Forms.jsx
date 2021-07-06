@@ -445,7 +445,7 @@ export const LoginForm = () => {
                 // console.log("Data: ", response.data)
                 cookie.set("token", response.data.token)
                 const tokenData = jwt_decode(response.data.token);
-                const userRole = tokenData.role_id === 1 ? 'Cliente': 'Experto';
+                const userRole = tokenData.role_id === 1 ? 'Experto': 'Cliente';
                 setLogin({...login, status:true, role: userRole, name:tokenData.name});
                 history.push('/profile/dashboard')
             }).catch(error => {
