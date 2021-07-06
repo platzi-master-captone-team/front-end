@@ -12,7 +12,7 @@ export const MainContainer = styled.div `
     @media (max-width: 768px){
         width: 90%;
         flex-grow: 1;
-        padding: 0.8rem;
+        padding: 2.5rem;
         margin: 0 1rem;
     }
 `
@@ -133,5 +133,16 @@ export const FormButton = styled.button`
     @media (max-width: 768px) {
         width: 100%;
     }
-
 `
+export const BottomText = styled.p`
+    margin: 2rem auto 0 auto;
+    text-align: center;
+    
+`
+export const Link = styled.a `
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: inherit;
+`
+

@@ -19,7 +19,9 @@ import {
     FormButton, 
     Select, 
     Option,
-    Error
+    Error,
+    BottomText,
+    Link
  } from './FormsStyles';
 
 
@@ -500,7 +502,11 @@ export const LoginForm = () => {
                     {errors.password && <Error>{errors.password.message}</Error>}
                 
                     <FormButton type="submit" buttonWidth={"100%"}>Ingresar</FormButton>
-
+                    
+                    <BottomText>
+                        ¿Aún no tienes una cuenta?
+                        <Link href="/signup">Regístrate ahora</Link>
+                    </BottomText>
                 </Inputs>
             </FormContainer>
 
