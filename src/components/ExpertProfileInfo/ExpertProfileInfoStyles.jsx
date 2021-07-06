@@ -29,8 +29,8 @@ const Title =  css`
     font-weight: bold;
     font-size: var(--font-large);
     margin: 1rem 0 0.2rem;
+    align-self: center;
     @media (max-width: 768px) {
-        align-self: center;
         font-size: var(--font-medium);
     }    
 `
@@ -59,6 +59,7 @@ export const Avatar = styled.img`
     height: 7rem; 
     background: gray;
     border-radius: 50%;
+    align-self: center;
     @media (max-width: 768px) {
         width: 9rem;
         height: 9rem;
@@ -74,8 +75,8 @@ export const Expertise = styled.p`
     color: #777777;
     line-height: 15px;
     margin-top: 0.5rem;
+    align-self: center;
     @media (max-width: 768px) {
-        align-self: center;
         font-size: var(--font-medium);
     }         
 `
@@ -87,10 +88,10 @@ export const Location = styled.p`
     color: #777777;
     line-height: 15px;
     margin: 0.5rem 0;
+    align-self: center;
     @media (max-width: 768px) {
         font-size: var(--font-medium);
         line-height: 2rem;
-        align-self: center;
     }         
     &::before {
         content: "";
@@ -236,6 +237,7 @@ export const PriceTag = styled.p`
     margin: 1.5rem 0;
     font-weight: medium;
     font-size: 1.5rem;
+    align-self: center;
     @media (max-width: 768px) {
         font-size: 2rem;
     }        

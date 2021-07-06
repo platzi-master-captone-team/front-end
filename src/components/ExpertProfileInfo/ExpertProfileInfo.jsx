@@ -60,12 +60,20 @@ const ExpertProfileInfo = ({
             <ExperienceCard>
                 <ExperienceTitle>Experiencia</ExperienceTitle>
                 <Division />
-                <ExperienceInfo>{experience}</ExperienceInfo>
+                <ExperienceInfo>
+                    <b>{experience.company}</b> <br/>        
+                    {experience.position} <br/>
+                    {experience.duration}        
+                </ExperienceInfo>
             </ExperienceCard>
             <EducationCard>
                 <EducationTitle>Educación</EducationTitle>
                 <Division />
-                <EducationInfo>{education}</EducationInfo>
+                <EducationInfo>
+                    <b>{education.university}</b> <br/>        
+                    {education.degree} <br/>
+                    {education.duration}
+                </EducationInfo>
             </EducationCard>
         </ProfileSection>
     )
