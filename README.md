@@ -35,6 +35,9 @@ Consultify es una plataforma pensada en como un marketplace donde personas, empr
 - Nodemailer
 - webRTC and socket.io
 
+### Documentación de Endpoints
+
+Puedes consultar la documentación de nuestros endpoints de [Backend](https://github.com/platzi-master-captone-team/back-end)
 
 ## Otras herramientas   
 &nbsp;
@@ -149,3 +152,4 @@ Creado para el Demo Day de [Platzi Master](https://platzi.com/master/) - Cohort 
 &nbsp;
 ## Licencia
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
