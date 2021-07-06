@@ -35,6 +35,9 @@ Consultify es una plataforma pensada en como un marketplace donde personas, empr
 - Nodemailer
 - webRTC and socket.io
 
+### Documentación de Endpoints
+
+Puedes consultar la documentación de nuestros endpoints de [Backend](https://github.com/platzi-master-captone-team/back-end)
 
 ## Otras herramientas   
 &nbsp;
