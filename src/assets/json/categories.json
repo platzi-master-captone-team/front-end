@@ -1,7 +1,14 @@
 [
     {
         "masteries": ["frontend", "backend", "data-science"],
-        "technologies": ["react", "vue", "angular", "node", "php", "django", "rails", "python", "r", "scala"]
+        "technologies": ["react", "vue", "angular", "node", "php", "django", "python", "r"]
+    },
+    {
+        "masteries": ["frontend", "backend", "data-science"],
+        "technologies": {
+            "frontend":["react", "vue", "angular"], 
+            "backend":["node", "php", "django"], 
+            "data-science":["python", "r"]}
     }
 ]
 
