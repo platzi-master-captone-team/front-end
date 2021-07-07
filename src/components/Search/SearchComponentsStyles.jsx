@@ -130,6 +130,16 @@ export const Profession = styled.p`
         font-size: var(--font-medium);
     }    
     `
+export const Expertise = styled.p`
+    font-weight: bold;
+    font-style: italic;
+    font-size: var(--font-small);
+    color: #777777;
+    line-height: 15px;
+    @media (max-width: 768px) {
+        font-size: var(--font-medium);
+    }    
+    `
 export const Division = styled.hr`
     margin: 0.8rem 0;
     border: 0;
