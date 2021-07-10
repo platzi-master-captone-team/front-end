@@ -13,14 +13,14 @@ const OrderTable = ( {fee} ) => {
                 <TR>
                     <TD>Consultoría</TD>
                     <TD>1</TD>
-                    <TD>${fee}.00</TD>
-                    <TD>${fee}.00</TD>
+                    <TD>${fee}.00 USD</TD>
+                    <TD>${fee}.00 USD</TD>
                 </TR>
                 <TR>
                     <TD></TD>
                     <TD></TD>
                     <TD><strong>TOTAL</strong></TD>
-                    <TD>${fee}.00</TD>
+                    <TD>${fee}.00 USD</TD>
                 </TR>
             </TBody>
         </StyledTable>

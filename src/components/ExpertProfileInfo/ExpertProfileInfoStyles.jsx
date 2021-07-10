@@ -69,6 +69,13 @@ export const Avatar = styled.img`
 export const Name = styled.h3`
     ${Title}
 `
+
+export const Currency = styled.div`
+    font-weight: bold;
+    font-size: var(--font-medium);
+    text-align: right;
+`
+
 export const Expertise = styled.p`
     font-weight: bold;
     font-size: var(--font-medium);
@@ -237,6 +244,8 @@ export const PriceTag = styled.p`
     margin: 1.5rem 0;
     font-weight: medium;
     font-size: 1.5rem;
+    display: flex;
+    align-items: center;
     align-self: center;
     @media (max-width: 768px) {
         font-size: 2rem;
