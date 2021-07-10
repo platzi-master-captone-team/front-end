@@ -96,6 +96,11 @@ export const Fee = styled.div`
     font-weight: bold;
     font-size: var(--font-large);
 `
+export const Currency = styled.div`
+    font-weight: bold;
+    font-size: var(--font-medium);
+    text-align: right;
+`
 
 export const Avatar = styled.img`
     width: 4rem;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { openPopupWidget } from 'react-calendly'
 import Calendar from './Calendar'
-import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton, ScheduleDate, Date } from './ExpertProfileInfoStyles'
+import { AgendaSection, AgendaCard, AgendaTitle, PriceTag, Span, Division, TimeTitle, Select, Option, Schedule, ScheduleSelection, ScheduleButton, ScheduleDate, Date, Currency } from './ExpertProfileInfoStyles'
 import slotsJSON from './mockSlots.json';
 import { useHistory } from 'react-router';
 
@@ -51,7 +51,7 @@ const ExpertProfileAgenda = ({fee, name, id}) => {
             
             <AgendaCard>
                 <AgendaTitle>Agenda una Consulta</AgendaTitle>
-                <PriceTag>$/Hora <Span>${fee}</Span></PriceTag>
+                <PriceTag>$/Hora <Span>${fee} USD</Span></PriceTag>
                 <Division />
                 <AgendaTitle>Selecciona una Fecha Disponible</AgendaTitle>
                 <ScheduleDate>

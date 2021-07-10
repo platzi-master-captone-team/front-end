@@ -32,7 +32,7 @@ const Payment = () => {
   return (
     <PaymentContainer>
       <MakePayment>
-        <Title>${fee}.00</Title>
+        <Title>${fee}.00 USD</Title>
         <Description>
           Consulta de 1 hora con {name} <br />
           <b>Fecha:</b> {date} <br />
