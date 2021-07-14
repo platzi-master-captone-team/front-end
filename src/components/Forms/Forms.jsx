@@ -278,8 +278,8 @@ export const RegisterUserForm = () => {
             <Title>Registrarse</Title>
             <TextIndicator>Regístrate con tus redes sociales</TextIndicator>
             <SocialButtons flexDirection={"row"}>
-                <SocialButton onClick={responseSuccessGoogle}buttonWidth={"250px"}><SocialButtonImg src={logoGoogle} />Regístrate con Google</SocialButton>
-                <SocialButton onClick={responseSuccessLinkedIn}buttonWidth={"250px"}><SocialButtonImg src={logoLinkedIn} />Regístrate con LinkedIn</SocialButton>
+                <SocialButton href='http://consultify.herokuapp.com/api/user/auth/google' rel="noopener" rel="noreferrer" marginBottom={"1rem"} buttonWidth={"250px"}  ><SocialButtonImg src={logoGoogle}  />Regístrate con Google</SocialButton>
+                <SocialButton href='http://consultify.herokuapp.com/api/user/auth/linkedin' rel="noopener" rel="noreferrer" marginBottom={"1rem"} buttonWidth={"250px"}><SocialButtonImg src={logoLinkedIn} />Regístrate con LinkedIn</SocialButton>
             </SocialButtons>
             <TextIndicator>O llena el siguiente formulario</TextIndicator>
             <FormContainer onSubmit={handleSubmit(onSubmit)}>
